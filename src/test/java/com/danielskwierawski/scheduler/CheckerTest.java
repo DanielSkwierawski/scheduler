@@ -33,8 +33,35 @@ public class CheckerTest {
     public void shouldTreatZeroAsDayOff() throws Exception {
         // given
         final int[][] plan = {{14,  0}};
+        //when
         boolean result = Checker.checkStartHours(plan);
         // then
         assertThat(result).isTrue();
+    }
+
+    @Test
+    public void shouldReturnTrueIfEveryWorkerDoesNotExceedGivenAmountOfWorkingHours() throws Exception {
+        // given
+        int standardAmountOfWorkingHours = 40;
+        final int[][] plan = {
+                {6,  6,  6,  6,  6,  0,  0},
+                {0,  0,  14, 14, 14, 14, 14},
+                {14, 14, 0,  0,  0,  6,  6}};
+        //when
+        boolean result = Checker.checkAmountOfWorkingHours(plan, standardAmountOfWorkingHours);
+        // then
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    public void shouldReturnFalseIfAnyWorkerExceedGivenAmountOfWorkingHours() throws Exception {
+        // given
+        int standardAmountOfWorkingHours = 40;
+        final int[][] plan = {
+                {6,  6,  6,  6,  6,  6,  6}};
+        // when
+        boolean result = Checker.checkAmountOfWorkingHours(plan, standardAmountOfWorkingHours);
+        // then
+        assertThat(result).isFalse();
     }
 }
