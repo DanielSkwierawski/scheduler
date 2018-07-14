@@ -25,18 +25,31 @@ public class Checker {
         return plan[i][j] < plan[i][j - 1];
     }
 
-    public static boolean checkAmountOfWorkingHours(int[][] plan, int standardAmountOfWorkingHours) {
+    public static boolean checkIfEveryWorkerDoesNotExceedGivenAmountOfWorkingHours(int[][] plan, int standardAmountOfWorkingHours) {
         for (int i = 0; i < plan.length; i++) {
-            int amountOfWorkingHoursOfWorker = 0;
-            for (int j = 1; j < plan[i].length; j++) {
-                if (dayIsNotDayOff(plan[i][j])) {
-                    amountOfWorkingHoursOfWorker += AMOUNT_OF_WORKING_HOURS_PER_DAY;
-                }
-            }
-            if (amountOfWorkingHoursOfWorker > standardAmountOfWorkingHours) {
+            if (calculateWorkingHoursOfWorker(plan[i]) > standardAmountOfWorkingHours) {
                 return false;
             }
         }
         return true;
+    }
+
+    public static boolean checkIfEveryWorkerDoesNotHaveWorkingHoursUnderTheGivenStandard(int[][] plan, int standardAmountOfWorkingHours) {
+        for (int i = 0; i < plan.length; i++) {
+            if (calculateWorkingHoursOfWorker(plan[i]) < standardAmountOfWorkingHours) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static int calculateWorkingHoursOfWorker(int[] plan) {
+        int amountOfWorkingHoursOfWorker = 0;
+        for (int j = 0; j < plan.length; j++) {
+            if (dayIsNotDayOff(plan[j])) {
+                amountOfWorkingHoursOfWorker += AMOUNT_OF_WORKING_HOURS_PER_DAY;
+            }
+        }
+        return amountOfWorkingHoursOfWorker;
     }
 }

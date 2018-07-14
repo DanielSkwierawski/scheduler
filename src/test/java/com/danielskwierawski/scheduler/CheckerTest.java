@@ -46,9 +46,9 @@ public class CheckerTest {
         final int[][] plan = {
                 {6,  6,  6,  6,  6,  0,  0},
                 {0,  0,  14, 14, 14, 14, 14},
-                {14, 14, 0,  0,  0,  6,  6}};
+                {14, 14, 14,  0,  0,  6,  6}};
         //when
-        boolean result = Checker.checkAmountOfWorkingHours(plan, standardAmountOfWorkingHours);
+        boolean result = Checker.checkIfEveryWorkerDoesNotExceedGivenAmountOfWorkingHours(plan, standardAmountOfWorkingHours);
         // then
         assertThat(result).isTrue();
     }
@@ -60,7 +60,33 @@ public class CheckerTest {
         final int[][] plan = {
                 {6,  6,  6,  6,  6,  6,  6}};
         // when
-        boolean result = Checker.checkAmountOfWorkingHours(plan, standardAmountOfWorkingHours);
+        boolean result = Checker.checkIfEveryWorkerDoesNotExceedGivenAmountOfWorkingHours(plan, standardAmountOfWorkingHours);
+        // then
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    public void shouldReturnTrueIfEveryWorkerDoesNotHaveWorkingHoursUnderTheGivenStandard() throws Exception {
+        // given
+        int standardAmountOfWorkingHours = 40;
+        final int[][] plan = {
+                {6,  6,  6,  6,  6,  0,  0},
+                {0,  0,  14, 14, 14, 14, 14},
+                {14, 14, 14,  0,  0,  6,  6}};
+        // when
+        boolean result = Checker.checkIfEveryWorkerDoesNotHaveWorkingHoursUnderTheGivenStandard(plan, standardAmountOfWorkingHours);
+        // then
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    public void shouldReturnFalseIfAnyWorkerHasWorkingHoursUnderTheGivenStandard() throws Exception {
+        // given
+        int standardAmountOfWorkingHours = 40;
+        final int[][] plan = {
+                {6,  6,  0,  0,  0,  0,  0}};
+        // when
+        boolean result = Checker.checkIfEveryWorkerDoesNotHaveWorkingHoursUnderTheGivenStandard(plan, standardAmountOfWorkingHours);
         // then
         assertThat(result).isFalse();
     }
