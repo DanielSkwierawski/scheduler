@@ -1,7 +1,6 @@
 package com.danielskwierawski.scheduler;
 
-import static com.danielskwierawski.scheduler.Checker.DAY_OFF;
-import static com.danielskwierawski.scheduler.Checker.LATEST_HOUR_OF_START_WORKING;
+import static com.danielskwierawski.scheduler.Checker.*;
 
 public class Creator {
     public static int[][] initializePlanWithGivenValue(int amountOfWorkers, int amountOfDays, int initValue) {
@@ -20,12 +19,16 @@ public class Creator {
         for (int worker = (amountOfWorkers - 1); worker >= 0; worker--) {
             int amountOfDays = givenPlan[worker].length;
             for (int day = (amountOfDays - 1); day >= 0; day--) {
-                if (isNotLatestHourOfStartWorking(givenPlan[worker][day])) {
-                    givenPlan[worker][day]++;
+                if (dayIsNotDayOff(givenPlan[worker][day])) {
+                    if (isNotLatestHourOfStartWorking(givenPlan[worker][day])) {
+                        givenPlan[worker][day]++;
+                    } else {
+                        givenPlan[worker][day] = DAY_OFF;
+                    }
                     overflow = false;
                 } else {
-                    givenPlan[worker][day] = DAY_OFF;
-                    overflow = false;
+                    givenPlan[worker][day] = EARLIEST_HOUR_OF_START_WORKING;
+                    overflow = true;
                 }
                 if (!overflow) {
                     break;

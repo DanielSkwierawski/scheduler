@@ -61,4 +61,22 @@ public class CreatorTest {
         // then
         assertThat(givenPlan).isEqualTo(expectedPlan);
     }
+
+    @Test
+    public void shouldSetEarliestHourToLeastSignificantDayAndIncreaseByOneNextDayWhenLastSignificantDayIsDayOff() throws Exception {
+        // given
+        final int initValue = EARLIEST_HOUR_OF_START_WORKING;
+        final int[][] givenPlan = {
+                {initValue, initValue, initValue, initValue, initValue},
+                {initValue, initValue, initValue, initValue, initValue},
+                {initValue, initValue, initValue, initValue, DAY_OFF}};
+        final int[][] expectedPlan = {
+                {initValue, initValue, initValue, initValue,    initValue},
+                {initValue, initValue, initValue, initValue,        initValue},
+                {initValue, initValue, initValue, (initValue + 1),  initValue}};
+        // when
+        Creator.increaseByOne(givenPlan);
+        // then
+        assertThat(givenPlan).isEqualTo(expectedPlan);
+    }
 }

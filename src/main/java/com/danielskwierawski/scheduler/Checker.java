@@ -22,7 +22,7 @@ public class Checker {
         return true;
     }
 
-    private static boolean dayIsNotDayOff(int hourOfStartWorking) {
+    public static boolean dayIsNotDayOff(int hourOfStartWorking) {
         return hourOfStartWorking != DAY_OFF;
     }
 
