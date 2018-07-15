@@ -16,7 +16,7 @@ public class Creator {
         return result;
     }
 
-    public static int[][] increaseByOne(int[][] givenPlan) {
+    public static int[][] copyAndIncreaseByOne(int[][] givenPlan) {
         boolean overflow = false;
         int[][] result = copyOf(givenPlan);
         int amountOfWorkers = result.length;

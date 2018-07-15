@@ -38,7 +38,7 @@ public class CreatorTest {
                 {initValue, initValue, initValue, initValue, initValue},
                 {initValue, initValue, initValue, initValue, (initValue + 1)}};
         // when
-        final int[][] result = Creator.increaseByOne(givenPlan);
+        final int[][] result = Creator.copyAndIncreaseByOne(givenPlan);
         // then
         assertThat(result).isEqualTo(expectedPlan);
     }
@@ -57,7 +57,7 @@ public class CreatorTest {
                 {initValue, initValue, initValue, initValue,        initValue},
                 {initValue, initValue, initValue, (initValue + 1),  DAY_OFF}};
         // when
-        final int[][] result = Creator.increaseByOne(givenPlan);
+        final int[][] result = Creator.copyAndIncreaseByOne(givenPlan);
         // then
         assertThat(result).isEqualTo(expectedPlan);
     }
