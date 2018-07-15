@@ -38,7 +38,7 @@ public class CreatorTest {
                 {initValue, initValue, initValue, initValue, initValue},
                 {initValue, initValue, initValue, initValue, (initValue + 1)}};
         // when
-        boolean result = Creator.increaseByOne(givenPlan);
+        final boolean result = Creator.increaseByOne(givenPlan);
         // then
         assertThat(givenPlan).isEqualTo(expectedPlan);
         assertThat(result).isTrue();
@@ -58,7 +58,7 @@ public class CreatorTest {
                 {initValue, initValue, initValue, initValue, initValue},
                 {initValue, initValue, initValue, initValue, DAY_OFF}};
         // when
-        boolean result = Creator.increaseByOne(givenPlan);
+        final boolean result = Creator.increaseByOne(givenPlan);
         // then
         assertThat(givenPlan).isEqualTo(expectedPlan);
         assertThat(result).isTrue();
@@ -77,7 +77,7 @@ public class CreatorTest {
                 {initValue, initValue, initValue, initValue,        initValue},
                 {initValue, initValue, initValue, (initValue + 1),  initValue}};
         // when
-        boolean result = Creator.increaseByOne(givenPlan);
+        final boolean result = Creator.increaseByOne(givenPlan);
         // then
         assertThat(givenPlan).isEqualTo(expectedPlan);
         assertThat(result).isTrue();
@@ -96,7 +96,7 @@ public class CreatorTest {
                 {initValue, initValue, initValue, initValue, initValue},
                 {initValue, initValue, initValue, initValue, initValue}};
         // when
-        boolean result = Creator.increaseByOne(givenPlan);
+        final boolean result = Creator.increaseByOne(givenPlan);
         // then
         assertThat(givenPlan).isEqualTo(expectedPlan);
         assertThat(result).isFalse();

@@ -15,7 +15,7 @@ public class CheckerTest {
                 {14,        14,         14,     14,     14},
                 {DAY_OFF,   DAY_OFF,    6,      6,      8}};
         // when
-        boolean result = Checker.checkStartHours(plan);
+        final boolean result = Checker.checkStartHours(plan);
         // then
         assertThat(result).isTrue();
     }
@@ -25,7 +25,7 @@ public class CheckerTest {
         // given
         final int[][] plan = {{14,  6}};
         // when
-        boolean result = Checker.checkStartHours(plan);
+        final boolean result = Checker.checkStartHours(plan);
         // then
         assertThat(result).isFalse();
     }
@@ -35,7 +35,7 @@ public class CheckerTest {
         // given
         final int[][] plan = {{14,  DAY_OFF}};
         //when
-        boolean result = Checker.checkStartHours(plan);
+        final boolean result = Checker.checkStartHours(plan);
         // then
         assertThat(result).isTrue();
     }
@@ -43,13 +43,13 @@ public class CheckerTest {
     @Test
     public void shouldReturnTrueIfEveryWorkerDoesNotExceedGivenAmountOfWorkingHours() throws Exception {
         // given
-        int standardAmountOfWorkingHours = 40;
+        final int standardAmountOfWorkingHours = 40;
         final int[][] plan = {
                 {6,         6,          6,      6,          6,          DAY_OFF,    DAY_OFF},
                 {DAY_OFF,   DAY_OFF,    14,     14,         14,         14,         14},
                 {14,        14,         14,     DAY_OFF,    DAY_OFF,    6,          6}};
         //when
-        boolean result = Checker.checkIfEveryWorkerDoesNotExceedGivenAmountOfWorkingHours(plan, standardAmountOfWorkingHours);
+        final boolean result = Checker.checkIfEveryWorkerDoesNotExceedGivenAmountOfWorkingHours(plan, standardAmountOfWorkingHours);
         // then
         assertThat(result).isTrue();
     }
@@ -57,11 +57,11 @@ public class CheckerTest {
     @Test
     public void shouldReturnFalseIfAnyWorkerExceedGivenAmountOfWorkingHours() throws Exception {
         // given
-        int standardAmountOfWorkingHours = 40;
+        final int standardAmountOfWorkingHours = 40;
         final int[][] plan = {
                 {6,  6,  6,  6,  6,  6,  6}};
         // when
-        boolean result = Checker.checkIfEveryWorkerDoesNotExceedGivenAmountOfWorkingHours(plan, standardAmountOfWorkingHours);
+        final boolean result = Checker.checkIfEveryWorkerDoesNotExceedGivenAmountOfWorkingHours(plan, standardAmountOfWorkingHours);
         // then
         assertThat(result).isFalse();
     }
@@ -69,13 +69,13 @@ public class CheckerTest {
     @Test
     public void shouldReturnTrueIfEveryWorkerDoesNotHaveWorkingHoursUnderTheGivenStandard() throws Exception {
         // given
-        int standardAmountOfWorkingHours = 40;
+        final int standardAmountOfWorkingHours = 40;
         final int[][] plan = {
                 {6,         6,          6,      6,          6,          DAY_OFF,    DAY_OFF},
                 {DAY_OFF,   DAY_OFF,    14,     14,         14,         14,         14},
                 {14,        14,         14,     DAY_OFF,    DAY_OFF,    6,          6}};
         // when
-        boolean result = Checker.checkIfEveryWorkerDoesNotHaveWorkingHoursUnderTheGivenStandard(plan, standardAmountOfWorkingHours);
+        final boolean result = Checker.checkIfEveryWorkerDoesNotHaveWorkingHoursUnderTheGivenStandard(plan, standardAmountOfWorkingHours);
         // then
         assertThat(result).isTrue();
     }
@@ -83,11 +83,11 @@ public class CheckerTest {
     @Test
     public void shouldReturnFalseIfAnyWorkerHasWorkingHoursUnderTheGivenStandard() throws Exception {
         // given
-        int standardAmountOfWorkingHours = 40;
+        final int standardAmountOfWorkingHours = 40;
         final int[][] plan = {
                 {6,     6,  DAY_OFF,    DAY_OFF,    DAY_OFF,    DAY_OFF,    DAY_OFF}};
         // when
-        boolean result = Checker.checkIfEveryWorkerDoesNotHaveWorkingHoursUnderTheGivenStandard(plan, standardAmountOfWorkingHours);
+        final boolean result = Checker.checkIfEveryWorkerDoesNotHaveWorkingHoursUnderTheGivenStandard(plan, standardAmountOfWorkingHours);
         // then
         assertThat(result).isFalse();
     }
@@ -107,7 +107,7 @@ public class CheckerTest {
                 {8,  8,  8,  8,  8},
                 {14, 14, 14, 14, 14}};
         // when
-        boolean result = Checker.checkIfWorkingCoverageIsFulfilled(plan, workersCoverage);
+        final boolean result = Checker.checkIfWorkingCoverageIsFulfilled(plan, workersCoverage);
         // then
         assertThat(result).isTrue();
     }
@@ -122,7 +122,7 @@ public class CheckerTest {
                 {6,  6,  6,  6,  6},
                 {14, 14, 14, 14, 14}};
         // when
-        boolean result = Checker.checkIfWorkingCoverageIsFulfilled(plan, workersCoverage);
+        final boolean result = Checker.checkIfWorkingCoverageIsFulfilled(plan, workersCoverage);
         // then
         assertThat(result).isFalse();
     }
