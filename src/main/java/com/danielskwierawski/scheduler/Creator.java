@@ -1,5 +1,7 @@
 package com.danielskwierawski.scheduler;
 
+import java.util.Arrays;
+
 public class Creator {
     public static int[][] initializePlanWithGivenValue(int amountOfWorkers, int amountOfDays, int initValue) {
         int[][] result = new int[amountOfWorkers][amountOfDays];
@@ -31,11 +33,7 @@ public class Creator {
         int amountOfWorkers = givenPlan.length;
         int[][] result = new int[amountOfWorkers][];
         for (int worker = 0; worker < amountOfWorkers; worker++) {
-            int amountOfDays = givenPlan[worker].length;
-            result[worker] = new int[amountOfDays];
-            for (int day = 0; day < amountOfDays; day++) {
-                result[worker][day] = givenPlan[worker][day];
-            }
+            result[worker] = Arrays.copyOf(givenPlan[worker], givenPlan[worker].length);
         }
         return result;
     }
