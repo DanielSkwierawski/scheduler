@@ -2,7 +2,9 @@ package com.danielskwierawski.scheduler;
 
 import org.junit.Test;
 
+import static com.danielskwierawski.scheduler.Checker.DAY_OFF;
 import static com.danielskwierawski.scheduler.Checker.EARLIEST_HOUR_OF_START_WORKING;
+import static com.danielskwierawski.scheduler.Checker.LATEST_HOUR_OF_START_WORKING;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CreatorTest {
@@ -35,6 +37,25 @@ public class CreatorTest {
                 {initValue, initValue, initValue, initValue, initValue},
                 {initValue, initValue, initValue, initValue, initValue},
                 {initValue, initValue, initValue, initValue, (initValue + 1)}};
+        // when
+        final int[][] result = Creator.increaseByOne(givenPlan);
+        // then
+        assertThat(result).isEqualTo(expectedPlan);
+    }
+
+    @Test
+    public void shouldResetLeastSignificantDayAndIncreaseByOneNextDayWhenLeastSignificantDayIsLatestHour() throws Exception {
+        // given
+        final int initValue = EARLIEST_HOUR_OF_START_WORKING;
+        final int latestHour = LATEST_HOUR_OF_START_WORKING;
+        final int[][] givenPlan = {
+                {initValue, initValue, initValue, initValue, initValue},
+                {initValue, initValue, initValue, initValue, initValue},
+                {initValue, initValue, initValue, initValue, latestHour}};
+        final int[][] expectedPlan = {
+                {initValue, initValue, initValue, initValue,        initValue},
+                {initValue, initValue, initValue, initValue,        initValue},
+                {initValue, initValue, initValue, (initValue + 1),  DAY_OFF}};
         // when
         final int[][] result = Creator.increaseByOne(givenPlan);
         // then
