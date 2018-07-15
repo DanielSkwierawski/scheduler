@@ -19,9 +19,7 @@ public class Creator {
         for (int worker = (amountOfWorkers - 1); worker >= 0; worker--) {
             int amountOfDays = result[worker].length;
             for (int day = (amountOfDays - 1); day >= 0; day--) {
-                System.out.println(result[worker][day]);
                 result[worker][day]++;
-                System.out.println(result[worker][day]);
                 break;
             }
             break;
