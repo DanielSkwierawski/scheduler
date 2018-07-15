@@ -5,10 +5,12 @@ public class Checker {
     public static final int AMOUNT_OF_WORKING_HOURS_PER_DAY = 8;
 
     public static boolean checkStartHours(int[][] plan) {
-        for (int i = 0; i < plan.length; i++) {
-            for (int j = 1; j < plan[i].length; j++) {
-                if (dayIsNotDayOff(plan[i][j])) {
-                    if (dayStartsBeforeThanDayBefore(plan, i, j)) {
+        int amountOfWorkers = plan.length;
+        for (int worker = 0; worker < amountOfWorkers; worker++) {
+            int amountOfDays = plan[worker].length;
+            for (int day = 1; day < amountOfDays; day++) {
+                if (dayIsNotDayOff(plan[worker][day])) {
+                    if (dayStartsBeforeThanPreviousDay(plan, worker, day)) {
                         return false;
                     }
                 }
@@ -17,17 +19,18 @@ public class Checker {
         return true;
     }
 
-    private static boolean dayIsNotDayOff(int i) {
-        return i != 0;
+    private static boolean dayIsNotDayOff(int hourOfStartWorking) {
+        return hourOfStartWorking != 0;
     }
 
-    private static boolean dayStartsBeforeThanDayBefore(int[][] plan, int i, int j) {
-        return plan[i][j] < plan[i][j - 1];
+    private static boolean dayStartsBeforeThanPreviousDay(int[][] plan, int worker, int day) {
+        return plan[worker][day] < plan[worker][day - 1];
     }
 
     public static boolean checkIfEveryWorkerDoesNotExceedGivenAmountOfWorkingHours(int[][] plan, int standardAmountOfWorkingHours) {
-        for (int i = 0; i < plan.length; i++) {
-            if (calculateWorkingHoursOfWorker(plan[i]) > standardAmountOfWorkingHours) {
+        int amountOfWorkers = plan.length;
+        for (int worker = 0; worker < amountOfWorkers; worker++) {
+            if (isStandardAmountOfWorkingHoursExceeded(plan[worker] , standardAmountOfWorkingHours)) {
                 return false;
             }
         }
@@ -35,18 +38,29 @@ public class Checker {
     }
 
     public static boolean checkIfEveryWorkerDoesNotHaveWorkingHoursUnderTheGivenStandard(int[][] plan, int standardAmountOfWorkingHours) {
-        for (int i = 0; i < plan.length; i++) {
-            if (calculateWorkingHoursOfWorker(plan[i]) < standardAmountOfWorkingHours) {
+        int amountOfWorkers = plan.length;
+        for (int worker = 0; worker < amountOfWorkers; worker++) {
+            if (isGivenStandardBiggerThanWorkerWorkingHours(plan[worker], standardAmountOfWorkingHours)) {
                 return false;
             }
         }
         return true;
     }
 
-    private static int calculateWorkingHoursOfWorker(int[] plan) {
+    public static boolean isStandardAmountOfWorkingHoursExceeded(int[] planOfWorker, int standardAmountOfWorkingHours) {
+        return calculateWorkingHoursOfWorker(planOfWorker) > standardAmountOfWorkingHours;
+    }
+
+    public static boolean isGivenStandardBiggerThanWorkerWorkingHours(int[] planOfWorker, int standardAmountOfWorkingHours) {
+        return calculateWorkingHoursOfWorker(planOfWorker) < standardAmountOfWorkingHours;
+
+    }
+
+    private static int calculateWorkingHoursOfWorker(int[] planOfWorker) {
+        int amountOfDays = planOfWorker.length;
         int amountOfWorkingHoursOfWorker = 0;
-        for (int j = 0; j < plan.length; j++) {
-            if (dayIsNotDayOff(plan[j])) {
+        for (int day = 0; day < amountOfDays; day++) {
+            if (dayIsNotDayOff(planOfWorker[day])) {
                 amountOfWorkingHoursOfWorker += AMOUNT_OF_WORKING_HOURS_PER_DAY;
             }
         }
@@ -54,18 +68,23 @@ public class Checker {
     }
 
     public static boolean checkIfWorkingCoverageIsFulfilled(int[][] plan, int[][] workersCoverage) {
-        for (int i = 0; i < workersCoverage.length; i++) {
-            for (int j = 0; j < workersCoverage[i].length; j++) {
-                if (isWorkingCoverageFulfilledForGivenHour(plan, workersCoverage[i][j], i, (j + 1))) return false;
+        int amountOfDaysFromCoverage = workersCoverage.length;
+        for (int day = 0; day < amountOfDaysFromCoverage; day++) {
+            int amountOfHoursFromCoverage = workersCoverage[day].length;
+            for (int currentHour = 0; currentHour < amountOfHoursFromCoverage; currentHour++) {
+                if (isWorkingCoverageNotFulfilledForGivenHour(plan, workersCoverage[day][currentHour], day, (currentHour + 1))) {
+                    return false;
+                }
             }
         }
         return true;
     }
 
-    private static boolean isWorkingCoverageFulfilledForGivenHour(int[][] plan, int neededWorkersCoverage, int day, int currentHour) {
+    private static boolean isWorkingCoverageNotFulfilledForGivenHour(int[][] plan, int neededWorkersCoverage, int day, int currentHour) {
+        int amountOfWorkers = plan.length;
         int amountOfAvailableWorkers = 0;
-        for (int k = 0; k < plan.length; k++) {
-            int hourOfStartWorking = plan[k][day];
+        for (int worker = 0; worker < amountOfWorkers; worker++) {
+            int hourOfStartWorking = plan[worker][day];
             if (dayIsNotDayOff(hourOfStartWorking)) {
                 if (isWorkerWorkingAtGivenHour(currentHour, hourOfStartWorking)) {
                     amountOfAvailableWorkers++;
@@ -75,7 +94,7 @@ public class Checker {
         return amountOfAvailableWorkers < neededWorkersCoverage;
     }
 
-    private static boolean isWorkerWorkingAtGivenHour(int currentHour, int hourOfStartWorking) {
-        return currentHour >= hourOfStartWorking && currentHour < (hourOfStartWorking + AMOUNT_OF_WORKING_HOURS_PER_DAY);
+    private static boolean isWorkerWorkingAtGivenHour(int givenHour, int hourOfStartWorking) {
+        return givenHour >= hourOfStartWorking && givenHour < (hourOfStartWorking + AMOUNT_OF_WORKING_HOURS_PER_DAY);
     }
 }
