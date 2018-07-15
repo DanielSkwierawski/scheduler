@@ -3,11 +3,11 @@ package com.danielskwierawski.scheduler;
 import static com.danielskwierawski.scheduler.Checker.*;
 
 public class Creator {
-    public static int[][] initializePlanWithGivenValue(int amountOfWorkers, int amountOfDays, int initValue) {
+    public static int[][] initializePlanWithGivenValue(int amountOfWorkers, int amountOfDays) {
         int[][] result = new int[amountOfWorkers][amountOfDays];
         for (int worker = 0; worker < amountOfWorkers; worker++) {
             for (int day = 0; day < amountOfDays; day++) {
-                result[worker][day] = initValue;
+                result[worker][day] = EARLIEST_HOUR_OF_START_WORKING;
             }
         }
         return result;
