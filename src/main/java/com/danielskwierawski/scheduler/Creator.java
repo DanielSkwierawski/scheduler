@@ -25,7 +25,7 @@ public class Creator {
                     overflow = false;
                 } else {
                     givenPlan[worker][day] = DAY_OFF;
-                    overflow = true;
+                    overflow = false;
                 }
                 if (!overflow) {
                     break;

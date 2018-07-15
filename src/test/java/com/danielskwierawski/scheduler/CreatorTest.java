@@ -44,7 +44,7 @@ public class CreatorTest {
     }
 
     @Test
-    public void shouldResetLeastSignificantDayAndIncreaseByOneNextDayWhenLeastSignificantDayIsLatestHour() throws Exception {
+    public void shouldSetDayOffToLeastSignificantDayWhenIsLatestHour() throws Exception {
         // given
         final int initValue = EARLIEST_HOUR_OF_START_WORKING;
         final int latestHour = LATEST_HOUR_OF_START_WORKING;
@@ -53,9 +53,9 @@ public class CreatorTest {
                 {initValue, initValue, initValue, initValue, initValue},
                 {initValue, initValue, initValue, initValue, latestHour}};
         final int[][] expectedPlan = {
-                {initValue, initValue, initValue, initValue,        initValue},
-                {initValue, initValue, initValue, initValue,        initValue},
-                {initValue, initValue, initValue, (initValue + 1),  DAY_OFF}};
+                {initValue, initValue, initValue, initValue, initValue},
+                {initValue, initValue, initValue, initValue, initValue},
+                {initValue, initValue, initValue, initValue, DAY_OFF}};
         // when
         Creator.increaseByOne(givenPlan);
         // then
