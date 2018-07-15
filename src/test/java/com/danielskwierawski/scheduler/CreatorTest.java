@@ -20,7 +20,7 @@ public class CreatorTest {
                 {initValue,initValue,initValue,initValue,initValue},
                 {initValue,initValue,initValue,initValue,initValue}};
         // when
-        final int[][] result = Creator.initializePlanWithGivenValue(amountOfWorkers, amountOfDays, initValue);
+        final int[][] result = Creator.initializePlanWithGivenValue(amountOfWorkers, amountOfDays);
         // then
         assertThat(result).isEqualTo(expectedPlan);
     }
