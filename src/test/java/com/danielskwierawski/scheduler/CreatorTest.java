@@ -21,7 +21,23 @@ public class CreatorTest {
         final int[][] result = Creator.initializePlanWithGivenValue(amountOfWorkers, amountOfDays, initValue);
         // then
         assertThat(result).isEqualTo(expectedPlan);
-
     }
 
+    @Test
+    public void shouldIncreaseByOneLeastSignificantDay() throws Exception {
+        // given
+        final int initValue = EARLIEST_HOUR_OF_START_WORKING;
+        final int[][] givenPlan = {
+                {initValue, initValue, initValue, initValue, initValue},
+                {initValue, initValue, initValue, initValue, initValue},
+                {initValue, initValue, initValue, initValue, initValue}};
+        final int[][] expectedPlan = {
+                {initValue, initValue, initValue, initValue, initValue},
+                {initValue, initValue, initValue, initValue, initValue},
+                {initValue, initValue, initValue, initValue, (initValue + 1)}};
+        // when
+        final int[][] result = Creator.increaseByOne(givenPlan);
+        // then
+        assertThat(result).isEqualTo(expectedPlan);
+    }
 }
