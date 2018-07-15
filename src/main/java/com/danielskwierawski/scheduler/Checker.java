@@ -73,7 +73,7 @@ public class Checker {
         for (int day = 0; day < amountOfDaysFromCoverage; day++) {
             int amountOfHoursFromCoverage = workersCoverage[day].length;
             for (int currentHour = 0; currentHour < amountOfHoursFromCoverage; currentHour++) {
-                if (isWorkingCoverageNotFulfilledForGivenHour(plan, workersCoverage[day][currentHour], day, (currentHour + 1))) {
+                if (isWorkingCoverageNotFulfilledForGivenHour(plan, workersCoverage[day][currentHour], day, (currentHour))) {
                     return false;
                 }
             }
@@ -85,9 +85,9 @@ public class Checker {
         int amountOfWorkers = plan.length;
         int amountOfAvailableWorkers = 0;
         for (int worker = 0; worker < amountOfWorkers; worker++) {
-            int hourOfStartWorking = plan[worker][day];
-            if (dayIsNotDayOff(hourOfStartWorking)) {
-                if (isWorkerWorkingAtGivenHour(currentHour, hourOfStartWorking)) {
+            int hourOfStartWorkingOfWorker = plan[worker][day];
+            if (dayIsNotDayOff(hourOfStartWorkingOfWorker)) {
+                if (isWorkerWorkingAtGivenHour(currentHour, hourOfStartWorkingOfWorker)) {
                     amountOfAvailableWorkers++;
                 }
             }
