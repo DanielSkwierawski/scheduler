@@ -38,9 +38,10 @@ public class CreatorTest {
                 {initValue, initValue, initValue, initValue, initValue},
                 {initValue, initValue, initValue, initValue, (initValue + 1)}};
         // when
-        Creator.increaseByOne(givenPlan);
+        boolean result = Creator.increaseByOne(givenPlan);
         // then
         assertThat(givenPlan).isEqualTo(expectedPlan);
+        assertThat(result).isTrue();
     }
 
     @Test
@@ -57,9 +58,10 @@ public class CreatorTest {
                 {initValue, initValue, initValue, initValue, initValue},
                 {initValue, initValue, initValue, initValue, DAY_OFF}};
         // when
-        Creator.increaseByOne(givenPlan);
+        boolean result = Creator.increaseByOne(givenPlan);
         // then
         assertThat(givenPlan).isEqualTo(expectedPlan);
+        assertThat(result).isTrue();
     }
 
     @Test
@@ -75,8 +77,28 @@ public class CreatorTest {
                 {initValue, initValue, initValue, initValue,        initValue},
                 {initValue, initValue, initValue, (initValue + 1),  initValue}};
         // when
-        Creator.increaseByOne(givenPlan);
+        boolean result = Creator.increaseByOne(givenPlan);
         // then
         assertThat(givenPlan).isEqualTo(expectedPlan);
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    public void shouldReturnFalseAndSetEarliestHourToEveryDayWhenEveryDayIsDayOff() throws Exception {
+        // given
+        final int initValue = EARLIEST_HOUR_OF_START_WORKING;
+        final int[][] givenPlan = {
+                {DAY_OFF, DAY_OFF, DAY_OFF, DAY_OFF, DAY_OFF},
+                {DAY_OFF, DAY_OFF, DAY_OFF, DAY_OFF, DAY_OFF},
+                {DAY_OFF, DAY_OFF, DAY_OFF, DAY_OFF, DAY_OFF}};
+        final int[][] expectedPlan = {
+                {initValue, initValue, initValue, initValue, initValue},
+                {initValue, initValue, initValue, initValue, initValue},
+                {initValue, initValue, initValue, initValue, initValue}};
+        // when
+        boolean result = Creator.increaseByOne(givenPlan);
+        // then
+        assertThat(givenPlan).isEqualTo(expectedPlan);
+        assertThat(result).isFalse();
     }
 }

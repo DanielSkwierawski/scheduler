@@ -13,7 +13,7 @@ public class Creator {
         return result;
     }
 
-    public static void increaseByOne(int[][] givenPlan) {
+    public static boolean increaseByOne(int[][] givenPlan) {
         boolean overflow = false;
         int amountOfWorkers = givenPlan.length;
         for (int worker = (amountOfWorkers - 1); worker >= 0; worker--) {
@@ -38,6 +38,7 @@ public class Creator {
                 break;
             }
         }
+        return !overflow;
     }
 
     private static boolean isNotLatestHourOfStartWorking(int i) {
