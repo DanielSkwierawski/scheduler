@@ -3,6 +3,7 @@ package com.danielskwierawski.scheduler;
 public class Checker {
 
     public static final int AMOUNT_OF_WORKING_HOURS_PER_DAY = 8;
+    public static final int DAY_OFF = 0;
 
     public static boolean checkStartHours(int[][] plan) {
         int amountOfWorkers = plan.length;
@@ -20,7 +21,7 @@ public class Checker {
     }
 
     private static boolean dayIsNotDayOff(int hourOfStartWorking) {
-        return hourOfStartWorking != 0;
+        return hourOfStartWorking != DAY_OFF;
     }
 
     private static boolean dayStartsBeforeThanPreviousDay(int[][] plan, int worker, int day) {

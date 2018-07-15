@@ -1,5 +1,6 @@
 package com.danielskwierawski.scheduler;
 
+import static com.danielskwierawski.scheduler.Checker.DAY_OFF;
 import static org.assertj.core.api.Assertions.*;
 
 import org.junit.Test;
@@ -10,9 +11,9 @@ public class CheckerTest {
     public void shouldReturnTrueWhenEveryDayStartsAtTheSameTimeThanDayBeforeOrLater() throws Exception {
         // given
         final int[][] plan = {
-                {6,  6,  8,  8,  14},
-                {14, 14, 14, 14, 14},
-                {0,  0,  6,  6,  8}};
+                {6,         6,          8,      8,      14},
+                {14,        14,         14,     14,     14},
+                {DAY_OFF,   DAY_OFF,    6,      6,      8}};
         // when
         boolean result = Checker.checkStartHours(plan);
         // then
@@ -32,7 +33,7 @@ public class CheckerTest {
     @Test
     public void shouldTreatZeroAsDayOff() throws Exception {
         // given
-        final int[][] plan = {{14,  0}};
+        final int[][] plan = {{14,  DAY_OFF}};
         //when
         boolean result = Checker.checkStartHours(plan);
         // then
@@ -44,9 +45,9 @@ public class CheckerTest {
         // given
         int standardAmountOfWorkingHours = 40;
         final int[][] plan = {
-                {6,  6,  6,  6,  6,  0,  0},
-                {0,  0,  14, 14, 14, 14, 14},
-                {14, 14, 14,  0,  0,  6,  6}};
+                {6,         6,          6,      6,          6,          DAY_OFF,    DAY_OFF},
+                {DAY_OFF,   DAY_OFF,    14,     14,         14,         14,         14},
+                {14,        14,         14,     DAY_OFF,    DAY_OFF,    6,          6}};
         //when
         boolean result = Checker.checkIfEveryWorkerDoesNotExceedGivenAmountOfWorkingHours(plan, standardAmountOfWorkingHours);
         // then
@@ -70,9 +71,9 @@ public class CheckerTest {
         // given
         int standardAmountOfWorkingHours = 40;
         final int[][] plan = {
-                {6,  6,  6,  6,  6,  0,  0},
-                {0,  0,  14, 14, 14, 14, 14},
-                {14, 14, 14,  0,  0,  6,  6}};
+                {6,         6,          6,      6,          6,          DAY_OFF,    DAY_OFF},
+                {DAY_OFF,   DAY_OFF,    14,     14,         14,         14,         14},
+                {14,        14,         14,     DAY_OFF,    DAY_OFF,    6,          6}};
         // when
         boolean result = Checker.checkIfEveryWorkerDoesNotHaveWorkingHoursUnderTheGivenStandard(plan, standardAmountOfWorkingHours);
         // then
@@ -84,7 +85,7 @@ public class CheckerTest {
         // given
         int standardAmountOfWorkingHours = 40;
         final int[][] plan = {
-                {6,  6,  0,  0,  0,  0,  0}};
+                {6,     6,  DAY_OFF,    DAY_OFF,    DAY_OFF,    DAY_OFF,    DAY_OFF}};
         // when
         boolean result = Checker.checkIfEveryWorkerDoesNotHaveWorkingHoursUnderTheGivenStandard(plan, standardAmountOfWorkingHours);
         // then
