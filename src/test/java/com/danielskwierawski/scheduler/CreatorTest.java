@@ -36,7 +36,7 @@ public class CreatorTest {
         final int[][] expectedPlan = {
                 {initValue, initValue, initValue, initValue, initValue},
                 {initValue, initValue, initValue, initValue, initValue},
-                {initValue, initValue, initValue, initValue, (initValue + 1)}};
+                {initValue, initValue, initValue, initValue, (initValue + 2)}};
         // when
         final boolean result = Creator.increaseByOne(givenPlan);
         // then
@@ -75,7 +75,7 @@ public class CreatorTest {
         final int[][] expectedPlan = {
                 {initValue, initValue, initValue, initValue,    initValue},
                 {initValue, initValue, initValue, initValue,        initValue},
-                {initValue, initValue, initValue, (initValue + 1),  initValue}};
+                {initValue, initValue, initValue, (initValue + 2),  initValue}};
         // when
         final boolean result = Creator.increaseByOne(givenPlan);
         // then

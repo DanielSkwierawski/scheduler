@@ -21,7 +21,7 @@ public class Creator {
             for (int day = (amountOfDays - 1); day >= 0; day--) {
                 if (dayIsNotDayOff(givenPlan[worker][day])) {
                     if (isNotLatestHourOfStartWorking(givenPlan[worker][day])) {
-                        givenPlan[worker][day]++;
+                        givenPlan[worker][day]+=2;
                     } else {
                         givenPlan[worker][day] = DAY_OFF;
                     }
