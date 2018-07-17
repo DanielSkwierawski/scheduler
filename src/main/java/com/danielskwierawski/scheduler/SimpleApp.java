@@ -11,16 +11,15 @@ public class SimpleApp {
         int counter = 15;
         long[] totals = new long[counter];
 
-        final int amountOfWorkers = 1;
-        final int amountOfDays = 10;
+        final int length = 10;
 
-        int[][] plan = Creator.initializePlanWithGivenValue(amountOfWorkers, amountOfDays);
+        int[] plan = Creator.initializePlanWithGivenValue(length);
 
-        System.out.println("amountOfWorkers=" + amountOfWorkers + " amountOfDays:" + amountOfDays);
+        System.out.println("1DimensionalPlan length=" + length + " HP ProBook 640 G3");
         for (int i = 0; i < counter; i++) {
             timeStart = System.nanoTime();
             do {
-//            System.out.println(Arrays.deepToString(plan));
+//            System.out.println(Arrays.toString(plan));
             } while (Creator.increaseByOne(plan));
             timeStop = System.nanoTime();
             totals[i] = timeStop - timeStart;
