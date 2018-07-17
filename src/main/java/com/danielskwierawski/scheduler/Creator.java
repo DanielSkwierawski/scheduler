@@ -13,6 +13,14 @@ public class Creator {
         return result;
     }
 
+    public static int[] initializePlanWithGivenValue(int length) {
+        int[] result = new int[length];
+        for (int i = 0; i < length; i++) {
+            result[i] = EARLIEST_HOUR_OF_START_WORKING;
+        }
+        return result;
+    }
+
     public static boolean increaseByOne(int[][] givenPlan) {
         boolean overflow = false;
         int amountOfWorkers = givenPlan.length;
@@ -33,6 +41,28 @@ public class Creator {
                 if (!overflow) {
                     break;
                 }
+            }
+            if (!overflow) {
+                break;
+            }
+        }
+        return !overflow;
+    }
+
+    public static boolean increaseByOne(int[] givenPlan) {
+        boolean overflow = false;
+        int length = givenPlan.length;
+        for (int i = (length - 1); i >= 0 ; i--) {
+            if (dayIsNotDayOff(givenPlan[i])) {
+                if (isNotLatestHourOfStartWorking(givenPlan[i])) {
+                    givenPlan[i]+=2;
+                } else {
+                    givenPlan[i] = DAY_OFF;
+                }
+                overflow = false;
+            } else {
+                givenPlan[i] = EARLIEST_HOUR_OF_START_WORKING;
+                overflow = true;
             }
             if (!overflow) {
                 break;
