@@ -102,4 +102,19 @@ public class Checker {
     private static boolean isWorkerWorkingAtGivenHour(int givenHour, int hourOfStartWorking) {
         return givenHour >= hourOfStartWorking && givenHour < (hourOfStartWorking + AMOUNT_OF_WORKING_HOURS_PER_DAY);
     }
+
+    public static boolean checkAmountOfNonWorkingDays(boolean[] plan, int amountOfNonWorkingDays) {
+        int counterOfNonWorkingDays = 0;
+        int lenght = plan.length;
+        for (int i = 0; i < lenght; i++) {
+            if (dayIsNonWorkingDay(plan[i])) {
+                counterOfNonWorkingDays++;
+            }
+        }
+        return counterOfNonWorkingDays == amountOfNonWorkingDays;
+    }
+
+    private static boolean dayIsNonWorkingDay(boolean day) {
+        return day == NON_WORKING_DAY;
+    }
 }

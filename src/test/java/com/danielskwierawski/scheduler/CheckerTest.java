@@ -1,9 +1,9 @@
 package com.danielskwierawski.scheduler;
 
-import static com.danielskwierawski.scheduler.Checker.DAY_OFF;
-import static org.assertj.core.api.Assertions.*;
-
 import org.junit.Test;
+
+import static com.danielskwierawski.scheduler.Checker.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class CheckerTest {
 
@@ -123,6 +123,39 @@ public class CheckerTest {
                 {14, 14, 14, 14, 14}};
         // when
         final boolean result = Checker.checkIfWorkingCoverageIsFulfilled(plan, workersCoverage);
+        // then
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    public void shouldReturnTrueIfPlanContainsExactlyAsManyNonWorkingDaysAsGiven() throws Exception {
+        // given
+        final int amountOfNonWorkingDays = 2;
+        final boolean[] givenPlan = {WORKING_DAY, WORKING_DAY, NON_WORKING_DAY, NON_WORKING_DAY};
+        // when
+        boolean result = Checker.checkAmountOfNonWorkingDays(givenPlan, amountOfNonWorkingDays);
+        // then
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    public void shouldReturnFalseIfPlanContainsLessNonWorkingDaysThanGiven() throws Exception {
+        // given
+        final int amountOfNonWorkingDays = 2;
+        final boolean[] givenPlan = {WORKING_DAY, WORKING_DAY, WORKING_DAY, NON_WORKING_DAY};
+        // when
+        boolean result = Checker.checkAmountOfNonWorkingDays(givenPlan, amountOfNonWorkingDays);
+        // then
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    public void shouldReturnFalseIfPlanContainsMoreNonWorkingDaysThanGiven() throws Exception {
+        // given
+        final int amountOfNonWorkingDays = 2;
+        final boolean[] givenPlan = {WORKING_DAY, NON_WORKING_DAY, NON_WORKING_DAY, NON_WORKING_DAY};
+        // when
+        boolean result = Checker.checkAmountOfNonWorkingDays(givenPlan, amountOfNonWorkingDays);
         // then
         assertThat(result).isFalse();
     }
