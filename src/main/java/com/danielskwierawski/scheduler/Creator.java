@@ -1,5 +1,7 @@
 package com.danielskwierawski.scheduler;
 
+import java.util.Arrays;
+
 import static com.danielskwierawski.scheduler.Checker.*;
 
 public class Creator {
@@ -18,6 +20,12 @@ public class Creator {
         for (int i = 0; i < length; i++) {
             result[i] = EARLIEST_HOUR_OF_START_WORKING;
         }
+        return result;
+    }
+
+    public static boolean[] initializePlanOfWorkingDays(int length) {
+        boolean[] result = new boolean[length];
+        Arrays.fill(result, WORKING_DAY);
         return result;
     }
 

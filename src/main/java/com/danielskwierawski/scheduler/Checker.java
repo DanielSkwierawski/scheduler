@@ -6,6 +6,8 @@ public class Checker {
     public static final int DAY_OFF = -1;
     public static final int EARLIEST_HOUR_OF_START_WORKING = 6;
     public static final int LATEST_HOUR_OF_START_WORKING = 14;
+    public static final boolean WORKING_DAY = true;
+    public static final boolean NON_WORKING_DAY = false;
 
     public static boolean checkStartHours(int[][] plan) {
         int amountOfWorkers = plan.length;

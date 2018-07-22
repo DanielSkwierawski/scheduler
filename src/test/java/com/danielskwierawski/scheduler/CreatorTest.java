@@ -2,9 +2,7 @@ package com.danielskwierawski.scheduler;
 
 import org.junit.Test;
 
-import static com.danielskwierawski.scheduler.Checker.DAY_OFF;
-import static com.danielskwierawski.scheduler.Checker.EARLIEST_HOUR_OF_START_WORKING;
-import static com.danielskwierawski.scheduler.Checker.LATEST_HOUR_OF_START_WORKING;
+import static com.danielskwierawski.scheduler.Checker.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CreatorTest {
@@ -33,6 +31,17 @@ public class CreatorTest {
         final int[] expectedPlan = {initValue,initValue,initValue,initValue,initValue};
         // when
         final int[] result = Creator.initializePlan(length);
+        // then
+        assertThat(result).isEqualTo(expectedPlan);
+    }
+
+    @Test
+    public void shouldReturn1DimensionalPlanOfWorkingDays() throws Exception {
+        // given
+        final int length = 5;
+        final boolean[] expectedPlan = {WORKING_DAY, WORKING_DAY, WORKING_DAY, WORKING_DAY, WORKING_DAY};
+        // when
+        final boolean[] result = Creator.initializePlanOfWorkingDays(length);
         // then
         assertThat(result).isEqualTo(expectedPlan);
     }
