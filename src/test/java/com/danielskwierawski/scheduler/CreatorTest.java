@@ -36,7 +36,7 @@ public class CreatorTest {
     }
 
     @Test
-    public void shouldReturn1DimensionalPlanOfWorkingDays() throws Exception {
+    public void shouldReturnPreFilled1DimensionalPlanOfWorkingDays() throws Exception {
         // given
         final int length = 5;
         final boolean[] expectedPlan = {WORKING_DAY, WORKING_DAY, WORKING_DAY, WORKING_DAY, WORKING_DAY};
