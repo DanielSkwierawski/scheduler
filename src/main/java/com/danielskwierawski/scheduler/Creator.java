@@ -8,18 +8,14 @@ public class Creator {
     public static int[][] initializePlan(int amountOfWorkers, int amountOfDays) {
         int[][] result = new int[amountOfWorkers][amountOfDays];
         for (int worker = 0; worker < amountOfWorkers; worker++) {
-            for (int day = 0; day < amountOfDays; day++) {
-                result[worker][day] = EARLIEST_HOUR_OF_START_WORKING;
-            }
+            Arrays.fill(result[worker], EARLIEST_HOUR_OF_START_WORKING);
         }
         return result;
     }
 
     public static int[] initializePlan(int length) {
         int[] result = new int[length];
-        for (int i = 0; i < length; i++) {
-            result[i] = EARLIEST_HOUR_OF_START_WORKING;
-        }
+        Arrays.fill(result, EARLIEST_HOUR_OF_START_WORKING);
         return result;
     }
 
