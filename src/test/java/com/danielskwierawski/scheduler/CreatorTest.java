@@ -79,6 +79,18 @@ public class CreatorTest {
     }
 
     @Test
+    public void shouldChangeLeastSignificantDayIn1DimensionalPlanOfWorkingDays() throws Exception {
+        // given
+        final boolean[] givenPlan =     {WORKING_DAY, WORKING_DAY, WORKING_DAY, WORKING_DAY, WORKING_DAY};
+        final boolean[] expectedPlan =  {WORKING_DAY, WORKING_DAY, WORKING_DAY, WORKING_DAY, NON_WORKING_DAY};
+        // when
+        final boolean result = Creator.increaseByOnePlanOfWorkingDays(givenPlan);
+        // then
+        assertThat(givenPlan).isEqualTo(expectedPlan);
+        assertThat(result).isTrue();
+    }
+
+    @Test
     public void shouldSetDayOffToLeastSignificantDayWhenIsLatestHour() throws Exception {
         // given
         final int initValue = EARLIEST_HOUR_OF_START_WORKING;
@@ -145,6 +157,18 @@ public class CreatorTest {
     }
 
     @Test
+    public void shouldSetWorkingDayToLeastSignificantDayAndChangeNextDayWhenLastSignificantDayIsNonWorkingDayIn1DimensionalPlanOfWorkingDays() throws Exception {
+        // given
+        final boolean[] givenPlan =     {WORKING_DAY, WORKING_DAY, WORKING_DAY, WORKING_DAY,        NON_WORKING_DAY};
+        final boolean[] expectedPlan =  {WORKING_DAY, WORKING_DAY, WORKING_DAY, NON_WORKING_DAY,    WORKING_DAY};
+        // when
+        final boolean result = Creator.increaseByOnePlanOfWorkingDays(givenPlan);
+        // then
+        assertThat(givenPlan).isEqualTo(expectedPlan);
+        assertThat(result).isTrue();
+    }
+
+    @Test
     public void shouldReturnFalseAndSetEarliestHourToEveryDayWhenEveryDayIsDayOff() throws Exception {
         // given
         final int initValue = EARLIEST_HOUR_OF_START_WORKING;
@@ -171,6 +195,18 @@ public class CreatorTest {
         final int[] expectedPlan = {initValue, initValue, initValue, initValue, initValue};
         // when
         final boolean result = Creator.increaseByOne(givenPlan);
+        // then
+        assertThat(givenPlan).isEqualTo(expectedPlan);
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    public void shouldReturnFalseAndWorkingDayToEveryDayWhenEveryDayIsNonWorkingDayIn1DimensionalPlanOfWorkingDays() throws Exception {
+        // given
+        final boolean[] givenPlan =     {NON_WORKING_DAY,   NON_WORKING_DAY,    NON_WORKING_DAY,    NON_WORKING_DAY,    NON_WORKING_DAY};
+        final boolean[] expectedPlan =  {WORKING_DAY,       WORKING_DAY,        WORKING_DAY,        WORKING_DAY,        WORKING_DAY};
+        // when
+        final boolean result = Creator.increaseByOnePlanOfWorkingDays(givenPlan);
         // then
         assertThat(givenPlan).isEqualTo(expectedPlan);
         assertThat(result).isFalse();

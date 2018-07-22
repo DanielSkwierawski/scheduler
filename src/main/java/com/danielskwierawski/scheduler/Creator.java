@@ -75,6 +75,36 @@ public class Creator {
         return !overflow;
     }
 
+    public static boolean increaseByOnePlanOfWorkingDays(boolean[] givenPlan) {
+        boolean overflow = false;
+        int length = givenPlan.length;
+        for (int i = (length - 1); i >= 0; i--) {
+            if (isWorkingDay(givenPlan[i])) {
+                setNonWorkingDay(givenPlan, i);
+                overflow = false;
+            } else {
+                setWorkingDay(givenPlan, i);
+                overflow = true;
+            }
+            if (!overflow) {
+                break;
+            }
+        }
+        return !overflow;
+    }
+
+    private static void setWorkingDay(boolean[] givenPlan, int i) {
+        givenPlan[i] = true;
+    }
+
+    private static void setNonWorkingDay(boolean[] givenPlan, int i) {
+        givenPlan[i] = false;
+    }
+
+    private static boolean isWorkingDay(boolean day) {
+        return day == WORKING_DAY;
+    }
+
     private static boolean isNotLatestHourOfStartWorking(int i) {
         return i != LATEST_HOUR_OF_START_WORKING;
     }
