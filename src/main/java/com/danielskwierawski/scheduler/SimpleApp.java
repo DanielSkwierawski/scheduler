@@ -13,7 +13,7 @@ public class SimpleApp {
 
         final int length = 10;
 
-        int[] plan = Creator.initializePlanWithGivenValue(length);
+        int[] plan = Creator.initializePlan(length);
 
         System.out.println("1DimensionalPlan length=" + length + " HP ProBook 640 G3");
         for (int i = 0; i < counter; i++) {

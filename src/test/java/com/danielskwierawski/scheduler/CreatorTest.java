@@ -20,7 +20,7 @@ public class CreatorTest {
                 {initValue,initValue,initValue,initValue,initValue},
                 {initValue,initValue,initValue,initValue,initValue}};
         // when
-        final int[][] result = Creator.initializePlanWithGivenValue(amountOfWorkers, amountOfDays);
+        final int[][] result = Creator.initializePlan(amountOfWorkers, amountOfDays);
         // then
         assertThat(result).isEqualTo(expectedPlan);
     }
@@ -32,7 +32,7 @@ public class CreatorTest {
         final int initValue = EARLIEST_HOUR_OF_START_WORKING;
         final int[] expectedPlan = {initValue,initValue,initValue,initValue,initValue};
         // when
-        final int[] result = Creator.initializePlanWithGivenValue(length);
+        final int[] result = Creator.initializePlan(length);
         // then
         assertThat(result).isEqualTo(expectedPlan);
     }
