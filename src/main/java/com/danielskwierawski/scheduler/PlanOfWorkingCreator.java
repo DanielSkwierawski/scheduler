@@ -1,5 +1,7 @@
 package com.danielskwierawski.scheduler;
 
+import java.util.Arrays;
+
 public class PlanOfWorkingCreator {
 
 
@@ -43,4 +45,21 @@ public class PlanOfWorkingCreator {
         }
         return result;
     }
+
+    public static boolean increaseByOne(boolean[][] plan, boolean[][] everyPossibleCombinationOfWorkingAndNonWorkingDays) {
+        final int lenghtOfPlan = plan.length;
+        for (int i = (lenghtOfPlan - 1); i >= 0; i--) {
+            final int lengthOfEveryPossibleCombinationOfWorkingAndNonWorkingDays = everyPossibleCombinationOfWorkingAndNonWorkingDays.length;
+            int j = 0;
+            for (; j < (lengthOfEveryPossibleCombinationOfWorkingAndNonWorkingDays); j++) {
+                if (Arrays.equals(plan[i], everyPossibleCombinationOfWorkingAndNonWorkingDays[j])) {
+                    break;
+                }
+            }
+            plan[i] = everyPossibleCombinationOfWorkingAndNonWorkingDays[j+1].clone();
+            break;
+        }
+        return true;
+    }
+    
 }

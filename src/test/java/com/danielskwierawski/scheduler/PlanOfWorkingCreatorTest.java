@@ -44,4 +44,62 @@ public class PlanOfWorkingCreatorTest {
         assertThat(result).isEqualTo(expectedPlan);
     }
 
+    @Test
+    public void shouldAssignSecondSetToLeastSignificantWorkerIfHeHasFirstSet() throws Exception {
+        // given
+        final boolean[][] everyPossibleCombinationOfWorkingAndNonWorkingDays = {
+                {true, true, false},
+                {true, false, true},
+                {false, true, true}
+        };
+        final boolean[][] givenPlan = {
+                {true, true, false},
+                {true, true, false},
+                {true, true, false},
+                {true, true, false},
+                {true, true, false}
+        };
+        final boolean[][] expectedPlan = {
+                {true, true, false},
+                {true, true, false},
+                {true, true, false},
+                {true, true, false},
+                {true, false, true}
+        };
+        // when
+        final boolean result = PlanOfWorkingCreator.increaseByOne(givenPlan, everyPossibleCombinationOfWorkingAndNonWorkingDays);
+        // then
+        assertThat(givenPlan).isEqualTo(expectedPlan);
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    public void shouldAssignThirdSetToLeastSignificantWorkerIfHeHasSecondSet() throws Exception {
+        // given
+        final boolean[][] everyPossibleCombinationOfWorkingAndNonWorkingDays = {
+                {true, true, false},
+                {true, false, true},
+                {false, true, true}
+        };
+        final boolean[][] givenPlan = {
+                {true, true, false},
+                {true, true, false},
+                {true, true, false},
+                {true, true, false},
+                {true, false, true}
+        };
+        final boolean[][] expectedPlan = {
+                {true, true, false},
+                {true, true, false},
+                {true, true, false},
+                {true, true, false},
+                {false, true, true}
+        };
+        // when
+        final boolean result = PlanOfWorkingCreator.increaseByOne(givenPlan, everyPossibleCombinationOfWorkingAndNonWorkingDays);
+        // then
+        assertThat(givenPlan).isEqualTo(expectedPlan);
+        assertThat(result).isTrue();
+    }
+
 }
