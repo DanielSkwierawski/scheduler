@@ -11,7 +11,7 @@ public class PlanOfWorkingCreatorTest {
         // given
         final int amountOfDays = 3;
         final int amountOfNonWorkingDays = 1;
-        boolean[][] expectedPlan = {
+        boolean[][] expected = {
                 {true, true, false},
                 {true, false, true},
                 {false, true, true}
@@ -19,7 +19,7 @@ public class PlanOfWorkingCreatorTest {
         // when
         final boolean[][] result = PlanOfWorkingCreator.createEveryPossibleCombinationsOfWorkingAndNonWorkingDays(amountOfDays, amountOfNonWorkingDays);
         // then
-        assertThat(result).isEqualTo(expectedPlan);
+        assertThat(result).isEqualTo(expected);
     }
 
     @Test
