@@ -31,7 +31,7 @@ public class CheckerTest {
     }
 
     @Test
-    public void shouldTreatZeroAsDayOff() throws Exception {
+    public void shouldTreatMinusOneAsDayOff() throws Exception {
         // given
         final int[][] plan = {{14,  DAY_OFF}};
         //when
