@@ -1,5 +1,7 @@
 package com.danielskwierawski.scheduler;
 
+import java.util.Arrays;
+
 public class Checker {
 
     public static final int AMOUNT_OF_WORKING_HOURS_PER_DAY = 8;
@@ -81,6 +83,24 @@ public class Checker {
                 if (isWorkingCoverageNotFulfilledForGivenHour(plan, workersCoverage[day][currentHour], day, (currentHour))) {
                     return false;
                 }
+            }
+        }
+        return true;
+    }
+
+    public static boolean checkIfWorkingCoverageCouldBeFulfilled(boolean[][] plan, int[][] workersCoverage) {
+        int amountOfDaysFromCoverage = workersCoverage.length;
+        for (int day = 0; day < amountOfDaysFromCoverage; day++) {
+            int maxAmountOfNeededWorkers = Arrays.stream(workersCoverage[day]).max().getAsInt();
+            int amountOfWorkersFromPlan = plan.length;
+            int amountOfAvailableWorkers = 0;
+            for (int worker = 0; worker < amountOfWorkersFromPlan; worker++) {
+                if (plan[worker][day]==true) {
+                    amountOfAvailableWorkers++;
+                }
+            }
+            if (maxAmountOfNeededWorkers > amountOfAvailableWorkers) {
+                return false;
             }
         }
         return true;
