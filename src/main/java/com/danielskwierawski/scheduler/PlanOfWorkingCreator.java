@@ -49,6 +49,7 @@ public class PlanOfWorkingCreator {
     public static boolean increaseByOne(boolean[][] plan, boolean[][] everyPossibleCombinationOfWorkingAndNonWorkingDays) {
         final int lenghtOfPlan = plan.length;
         for (int i = (lenghtOfPlan - 1); i >= 0; i--) {
+            boolean overflow = false;
             final int lengthOfEveryPossibleCombinationOfWorkingAndNonWorkingDays = everyPossibleCombinationOfWorkingAndNonWorkingDays.length;
             int j = 0;
             for (; j < (lengthOfEveryPossibleCombinationOfWorkingAndNonWorkingDays); j++) {
@@ -56,10 +57,17 @@ public class PlanOfWorkingCreator {
                     break;
                 }
             }
-            plan[i] = everyPossibleCombinationOfWorkingAndNonWorkingDays[j+1].clone();
-            break;
+            if ((j + 1) < lengthOfEveryPossibleCombinationOfWorkingAndNonWorkingDays) {
+                plan[i] = everyPossibleCombinationOfWorkingAndNonWorkingDays[j + 1].clone();
+            } else {
+                plan[i] = everyPossibleCombinationOfWorkingAndNonWorkingDays[0].clone();
+                overflow = true;
+            }
+            if (!overflow) {
+                break;
+            }
         }
         return true;
     }
-    
+
 }

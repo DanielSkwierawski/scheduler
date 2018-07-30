@@ -102,4 +102,33 @@ public class PlanOfWorkingCreatorTest {
         assertThat(result).isTrue();
     }
 
+    @Test
+    public void shouldResetLeastSignificantWorkerAndIncreaseByOneNextWorkerIfLeastSignificantWorkerHasLastSetFromGivenArray() throws Exception {
+        // given
+        final boolean[][] everyPossibleCombinationOfWorkingAndNonWorkingDays = {
+                {true, true, false},
+                {true, false, true},
+                {false, true, true}
+        };
+        final boolean[][] givenPlan = {
+                {true, true, false},
+                {true, true, false},
+                {true, true, false},
+                {true, true, false},
+                {false, true, true}
+        };
+        final boolean[][] expectedPlan = {
+                {true, true, false},
+                {true, true, false},
+                {true, true, false},
+                {true, false, true},
+                {true, true, false}
+        };
+        // when
+        final boolean result = PlanOfWorkingCreator.increaseByOne(givenPlan, everyPossibleCombinationOfWorkingAndNonWorkingDays);
+        // then
+        assertThat(givenPlan).isEqualTo(expectedPlan);
+        assertThat(result).isTrue();
+    }
+
 }
