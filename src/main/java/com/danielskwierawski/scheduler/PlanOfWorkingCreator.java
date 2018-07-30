@@ -1,5 +1,6 @@
 package com.danielskwierawski.scheduler;
 
+import java.math.BigInteger;
 import java.util.Arrays;
 
 public class PlanOfWorkingCreator {
@@ -23,17 +24,17 @@ public class PlanOfWorkingCreator {
         } while (Creator.increaseByOnePlanOfWorkingDays(plan));
     }
 
-    private static int getAmountOfCombinations(int amountOfDays, int amountOfNonWorkingDays) {
+    static int getAmountOfCombinations(int amountOfDays, int amountOfNonWorkingDays) {
         if (amountOfDays == amountOfNonWorkingDays) {
             return 1;
         }
-        return ((factorial(amountOfDays)) / ((factorial(amountOfNonWorkingDays)) * factorial(amountOfDays - amountOfNonWorkingDays)));
+        return factorial(amountOfDays).divide(factorial(amountOfNonWorkingDays).multiply(factorial(amountOfDays - amountOfNonWorkingDays))).intValueExact();
     }
 
-    private static int factorial(int input) {
-        int result = 1;
+    static BigInteger factorial(int input) {
+        BigInteger result = BigInteger.valueOf(1);
         for (int factor = 2; factor <= input; factor++) {
-            result *= factor;
+            result = result.multiply(BigInteger.valueOf(factor));
         }
         return result;
     }

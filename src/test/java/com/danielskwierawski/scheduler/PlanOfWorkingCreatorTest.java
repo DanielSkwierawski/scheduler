@@ -2,6 +2,8 @@ package com.danielskwierawski.scheduler;
 
 import org.junit.Test;
 
+import java.math.BigInteger;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class PlanOfWorkingCreatorTest {
@@ -160,4 +162,27 @@ public class PlanOfWorkingCreatorTest {
         assertThat(result).isFalse();
     }
 
+    @Test
+    public void shouldReturnCorrectAmountOfCombinations10From31() throws Exception {
+        // given
+        final int amountOfDays = 31;
+        final int amountOfNonWorkingDays = 10;
+        final int expectedAmountOfCombinations = 44352165;
+        // when
+        final int result = PlanOfWorkingCreator.getAmountOfCombinations(amountOfDays, amountOfNonWorkingDays);
+        // then
+        assertThat(result).isEqualTo(expectedAmountOfCombinations);
+    }
+
+    @Test
+    public void shouldReturnCorrectValueOfFactorialOf12() throws Exception {
+        // given
+        final int factorialInput1 = 12;
+        final BigInteger expectedFactorialOutput1 = new BigInteger("479001600");
+        // when
+        final BigInteger result1 = PlanOfWorkingCreator.factorial(factorialInput1);
+        // then
+        assertThat(result1).isEqualTo(expectedFactorialOutput1);
+
+    }
 }
