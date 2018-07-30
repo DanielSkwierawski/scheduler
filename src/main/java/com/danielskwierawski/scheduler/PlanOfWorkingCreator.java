@@ -35,4 +35,12 @@ public class PlanOfWorkingCreator {
         }
         return result;
     }
+
+    public static boolean[][] initializePlanForWorkersFromGivenArray(int amountOfWorkers, boolean[][] everyPossibleCombinationOfWorkingAndNonWorkingDays) {
+        boolean[][] result = new boolean[amountOfWorkers][];
+        for (int i = 0; i < amountOfWorkers; i++) {
+            result[i] = everyPossibleCombinationOfWorkingAndNonWorkingDays[0].clone();
+        }
+        return result;
+    }
 }

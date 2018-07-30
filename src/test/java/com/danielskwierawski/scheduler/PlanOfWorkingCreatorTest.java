@@ -23,6 +23,28 @@ public class PlanOfWorkingCreatorTest {
     }
 
     @Test
+    public void shouldReturnPlanOfWorkingAndNonWorkingDaysForGivenAmountOfWorkers() throws Exception {
+        // given
+        final int amountOfWorkers = 5;
+        final boolean[][] everyPossibleCombinationOfWorkingAndNonWorkingDays = {
+                {true, true, false},
+                {true, false, true},
+                {false, true, true}
+        };
+        final boolean[][] expectedPlan = {
+                {true, true, false},
+                {true, true, false},
+                {true, true, false},
+                {true, true, false},
+                {true, true, false}
+        };
+        // when
+        final boolean[][] result = PlanOfWorkingCreator.initializePlanForWorkersFromGivenArray(amountOfWorkers, everyPossibleCombinationOfWorkingAndNonWorkingDays);
+        // then
+        assertThat(result).isEqualTo(expectedPlan);
+    }
+
+    @Test
     public void shouldReturnCorrectValueOfFactorial() throws Exception {
         // given
         final int factorialInput1 = 1;
