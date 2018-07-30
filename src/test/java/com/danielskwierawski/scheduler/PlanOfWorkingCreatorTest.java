@@ -131,4 +131,33 @@ public class PlanOfWorkingCreatorTest {
         assertThat(result).isTrue();
     }
 
+    @Test
+    public void shouldReturnFalseAndResetAllWorkersWhenEveryWorkerHasLastSet() throws Exception {
+        // given
+        final boolean[][] everyPossibleCombinationOfWorkingAndNonWorkingDays = {
+                {true, true, false},
+                {true, false, true},
+                {false, true, true}
+        };
+        final boolean[][] givenPlan = {
+                {false, true, true},
+                {false, true, true},
+                {false, true, true},
+                {false, true, true},
+                {false, true, true}
+        };
+        final boolean[][] expectedPlan = {
+                {true, true, false},
+                {true, true, false},
+                {true, true, false},
+                {true, true, false},
+                {true, true, false}
+        };
+        // when
+        final boolean result = PlanOfWorkingCreator.increaseByOne(givenPlan, everyPossibleCombinationOfWorkingAndNonWorkingDays);
+        // then
+        assertThat(givenPlan).isEqualTo(expectedPlan);
+        assertThat(result).isFalse();
+    }
+
 }
