@@ -5,7 +5,20 @@ public class PlanOfWorkingCreator {
 
     public static boolean[][] createEveryPossibleCombinationsOfWorkingAndNonWorkingDays(int amountOfDays, int amountOfNonWorkingDays) {
         int amountOfCombinations = getAmountOfCombinations(amountOfDays, amountOfNonWorkingDays);
-        return new boolean[0][];
+        boolean[][] result = new boolean[amountOfCombinations][];
+        fillWithAppropriatePlan(amountOfDays, amountOfNonWorkingDays, result);
+        return result;
+    }
+
+    private static void fillWithAppropriatePlan(int amountOfDays, int amountOfNonWorkingDays, boolean[][] result) {
+        boolean[] plan = Creator.initializePlanOfWorkingDays(amountOfDays);
+        int index = 0;
+        do {
+            if (Checker.checkAmountOfNonWorkingDays(plan, amountOfNonWorkingDays)) {
+                result[index] = plan.clone();
+                index++;
+            }
+        } while (Creator.increaseByOnePlanOfWorkingDays(plan));
     }
 
     public static int getAmountOfCombinations(int amountOfDays, int amountOfNonWorkingDays) {
