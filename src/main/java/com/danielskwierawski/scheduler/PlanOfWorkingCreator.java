@@ -21,14 +21,14 @@ public class PlanOfWorkingCreator {
         } while (Creator.increaseByOnePlanOfWorkingDays(plan));
     }
 
-    public static int getAmountOfCombinations(int amountOfDays, int amountOfNonWorkingDays) {
+    private static int getAmountOfCombinations(int amountOfDays, int amountOfNonWorkingDays) {
         if (amountOfDays == amountOfNonWorkingDays) {
             return 1;
         }
         return ((factorial(amountOfDays)) / ((factorial(amountOfNonWorkingDays)) * factorial(amountOfDays - amountOfNonWorkingDays)));
     }
 
-    public static int factorial(int input) {
+    private static int factorial(int input) {
         int result = 1;
         for (int factor = 2; factor <= input; factor++) {
             result *= factor;
