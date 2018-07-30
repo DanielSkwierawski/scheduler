@@ -9,10 +9,13 @@ public class PlanOfWorkingCreator {
     }
 
     public static int getAmountOfCombinations(int amountOfDays, int amountOfNonWorkingDays) {
-        return (factorial(amountOfDays))/((factorial(amountOfNonWorkingDays))*(amountOfDays-amountOfNonWorkingDays));
+        if (amountOfDays == amountOfNonWorkingDays) {
+            return 1;
+        }
+        return ((factorial(amountOfDays)) / ((factorial(amountOfNonWorkingDays)) * factorial(amountOfDays - amountOfNonWorkingDays)));
     }
 
-    private static int factorial(int input) {
+    public static int factorial(int input) {
         int result = 1;
         for (int factor = 2; factor <= input; factor++) {
             result *= factor;
