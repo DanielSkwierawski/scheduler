@@ -33,7 +33,7 @@ public class Creator {
             for (int day = (amountOfDays - 1); day >= 0; day--) {
                 if (dayIsNotDayOff(givenPlan[worker][day])) {
                     if (isNotLatestHourOfStartWorking(givenPlan[worker][day])) {
-                        givenPlan[worker][day]+=2;
+                        givenPlan[worker][day]+=STEP;
                     } else {
                         givenPlan[worker][day] = DAY_OFF;
                     }
@@ -59,7 +59,7 @@ public class Creator {
         for (int i = (length - 1); i >= 0 ; i--) {
             if (dayIsNotDayOff(givenPlan[i])) {
                 if (isNotLatestHourOfStartWorking(givenPlan[i])) {
-                    givenPlan[i]+=2;
+                    givenPlan[i]+=STEP;
                 } else {
                     givenPlan[i] = DAY_OFF;
                 }

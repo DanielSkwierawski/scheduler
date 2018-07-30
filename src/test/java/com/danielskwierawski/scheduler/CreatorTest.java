@@ -57,7 +57,7 @@ public class CreatorTest {
         final int[][] expectedPlan = {
                 {initValue, initValue, initValue, initValue, initValue},
                 {initValue, initValue, initValue, initValue, initValue},
-                {initValue, initValue, initValue, initValue, (initValue + 2)}};
+                {initValue, initValue, initValue, initValue, (initValue + STEP)}};
         // when
         final boolean result = Creator.increaseByOne(givenPlan);
         // then
@@ -70,7 +70,7 @@ public class CreatorTest {
         // given
         final int initValue = EARLIEST_HOUR_OF_START_WORKING;
         final int[] givenPlan =     {initValue, initValue, initValue, initValue, initValue};
-        final int[] expectedPlan =  {initValue, initValue, initValue, initValue, (initValue + 2)};
+        final int[] expectedPlan =  {initValue, initValue, initValue, initValue, (initValue + STEP)};
         // when
         final boolean result = Creator.increaseByOne(givenPlan);
         // then
@@ -135,7 +135,7 @@ public class CreatorTest {
         final int[][] expectedPlan = {
                 {initValue, initValue, initValue, initValue,    initValue},
                 {initValue, initValue, initValue, initValue,        initValue},
-                {initValue, initValue, initValue, (initValue + 2),  initValue}};
+                {initValue, initValue, initValue, (initValue + STEP),  initValue}};
         // when
         final boolean result = Creator.increaseByOne(givenPlan);
         // then
@@ -148,7 +148,7 @@ public class CreatorTest {
         // given
         final int initValue = EARLIEST_HOUR_OF_START_WORKING;
         final int[] givenPlan = {initValue, initValue, initValue, initValue, DAY_OFF};
-        final int[] expectedPlan = {initValue, initValue, initValue, (initValue + 2),  initValue};
+        final int[] expectedPlan = {initValue, initValue, initValue, (initValue + STEP),  initValue};
         // when
         final boolean result = Creator.increaseByOne(givenPlan);
         // then
