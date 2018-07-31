@@ -5,6 +5,27 @@
 amountOfDays=28 amountOfNonWorkingDays=8 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=28
 
 
+amountOfDays=14 amountOfNonWorkingDays=4 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=14 amountOfCombinations=1001
+252255512530
+257806718354
+
+amountOfDays=14 amountOfNonWorkingDays=3 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=14 amountOfCombinations=360
+14334594412
+13673082820
+13587599447
+13606078858
+13590491561
+13558383275
+13569354710
+13538033616
+13557286087
+13586316300
+13573659575
+13689954699
+13620277324
+13619449965
+13691600653
+
 amountOfDays=14 amountOfNonWorkingDays=2 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=14 amountOfCombinations=82
 478505541
 303241718
