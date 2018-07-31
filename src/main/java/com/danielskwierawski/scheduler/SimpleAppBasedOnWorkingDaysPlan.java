@@ -53,12 +53,18 @@ public class SimpleAppBasedOnWorkingDaysPlan {
         System.out.println("amountOfDays=" + amountOfDays + " amountOfNonWorkingDays=" + amountOfNonWorkingDays + " amountOfWorkers=" + amountOfWorkers + " amountOfDaysFromWorkersCoverage=" + amountOfDaysFromWorkersCoverage);
         for (int i = 0; i < counter; i++) {
             timeStart = System.nanoTime();
+            int amountOfCombinationsOfPlanForEveryUser = 0;
+            int amountOfCombinationsOfPlanForEveryUserWhichPassedRequirements = 0;
             do {
+                amountOfCombinationsOfPlanForEveryUser++;
                 if (Checker.checkIfWorkingCoverageCouldBeFulfilled(plan, workersCoverage)) {
 //                    System.out.println(Arrays.deepToString(plan));
+                    amountOfCombinationsOfPlanForEveryUserWhichPassedRequirements++;
                 }
 
             } while (PlanOfWorkingCreator.increaseByOne(plan, everyPossibleCombinationOfWorkingAndNonWorkingDays));
+            System.out.println(amountOfCombinationsOfPlanForEveryUser + " possible combinations for every workers");
+            System.out.println(amountOfCombinationsOfPlanForEveryUserWhichPassedRequirements + " combinations passed requirements");
             timeStop = System.nanoTime();
             totals[i] = timeStop - timeStart;
             System.out.println(totals[i]);

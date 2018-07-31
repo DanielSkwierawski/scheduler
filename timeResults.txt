@@ -1,8 +1,14 @@
 25985526743 -> 25s
 
 
+2889315 possible combinations for one worker
+amountOfDays=28 amountOfNonWorkingDays=8 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=28
 
+
+82 possible combinations for one worker
 amountOfDays=14 amountOfNonWorkingDays=2 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=14
+551368 possible combinations for every workers
+67998 combinations passed requirements
 559903221
 420973576
 421864137
@@ -20,11 +26,17 @@ amountOfDays=14 amountOfNonWorkingDays=2 amountOfWorkers=3 amountOfDaysFromWorke
 276103804
 
 during browsing websites
+715 possible combinations for one worker
 amountOfDays=13 amountOfNonWorkingDays=4 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=13
+365525875 possible combinations for every workers
+4280850 combinations passed requirements
 443626625972
 443542063416
 
+286 possible combinations for one worker
 amountOfDays=13 amountOfNonWorkingDays=3 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=13
+23393656 possible combinations for every workers
+1284360 combinations passed requirements
 17292006298
 16352019410
 15855810853
@@ -42,13 +54,19 @@ amountOfDays=13 amountOfNonWorkingDays=3 amountOfWorkers=3 amountOfDaysFromWorke
 15938005887
 
 
+495 possible combinations for one worker
 amountOfDays=12 amountOfNonWorkingDays=4 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=12
+121287375 possible combinations for every workers
+4280850 combinations passed requirements
 108143651294
 105799884240
 106836299245
 106308862486
 
+220 possible combinations for one worker
 amountOfDays=12 amountOfNonWorkingDays=3 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=12
+10648000 possible combinations for every workers
+1284360 combinations passed requirements
 6918682329
 6136532874
 6124362036
@@ -66,7 +84,10 @@ amountOfDays=12 amountOfNonWorkingDays=3 amountOfWorkers=3 amountOfDaysFromWorke
 6024629698
 
 
+330 possible combinations for one worker
 amountOfDays=11 amountOfNonWorkingDays=4 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=11
+35937000 possible combinations for every workers
+735210 combinations passed requirements
 24757950495
 23897213695
 23886839395
@@ -83,7 +104,10 @@ amountOfDays=11 amountOfNonWorkingDays=4 amountOfWorkers=3 amountOfDaysFromWorke
 24290391932
 24174638772
 
+165 possible combinations for one worker
 amountOfDays=11 amountOfNonWorkingDays=3 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=11
+4492125 possible combinations for every workers
+407400 combinations passed requirements
 3045541236
 2293631270
 2286192384
@@ -101,7 +125,10 @@ amountOfDays=11 amountOfNonWorkingDays=3 amountOfWorkers=3 amountOfDaysFromWorke
 2310427649
 
 
+210 possible combinations for one worker
 amountOfDays=10 amountOfNonWorkingDays=4 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=10
+9261000 possible combinations for every workers
+87570 combinations passed requirements
 5590736794
 4786190321
 4839493529
@@ -118,7 +145,10 @@ amountOfDays=10 amountOfNonWorkingDays=4 amountOfWorkers=3 amountOfDaysFromWorke
 4877932170
 4841627409
 
+45 possible combinations for one worker
 amountOfDays=10 amountOfNonWorkingDays=2 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=10
+91125 possible combinations for every workers
+19236 combinations passed requirements
 235858816
 77593588
 53425513
@@ -136,7 +166,10 @@ amountOfDays=10 amountOfNonWorkingDays=2 amountOfWorkers=3 amountOfDaysFromWorke
 51102674
 
 
+126 possible combinations for one worker
 amountOfDays=9 amountOfNonWorkingDays=4 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=9
+2000376 possible combinations for every workers
+5670 combinations passed requirements
 1424742821
 826406080
 813577959
@@ -153,7 +186,10 @@ amountOfDays=9 amountOfNonWorkingDays=4 amountOfWorkers=3 amountOfDaysFromWorker
 734439110
 735055108
 
+36 possible combinations for one worker
 amountOfDays=9 amountOfNonWorkingDays=2 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=9
+46656 possible combinations for every workers
+7770 combinations passed requirements
 190829856
 28141537
 21192256
@@ -171,7 +207,10 @@ amountOfDays=9 amountOfNonWorkingDays=2 amountOfWorkers=3 amountOfDaysFromWorker
 17476062
 
 
+28 possible combinations for one worker
 amountOfDays=8 amountOfNonWorkingDays=2 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=8
+21952 possible combinations for every workers
+2640 combinations passed requirements
 259423598
 63134837
 16847491
@@ -189,7 +228,10 @@ amountOfDays=8 amountOfNonWorkingDays=2 amountOfWorkers=3 amountOfDaysFromWorker
 12228041
 
 
+21 possible combinations for one worker
 amountOfDays=7 amountOfNonWorkingDays=2 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=7
+9261 possible combinations for every workers
+690 combinations passed requirements
 146803000
 22139452
 16092419
