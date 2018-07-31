@@ -16,7 +16,6 @@ public class PlanOfWorkingCreator {
         for (int i = 0; i < sizeOfListOfCombinations; i++) {
             result[i] = listOfCombinations.get(i);
         }
-        System.out.println(sizeOfListOfCombinations + " possible combinations for one worker");
         return result;
     }
 
