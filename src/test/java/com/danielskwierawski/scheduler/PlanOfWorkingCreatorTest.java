@@ -47,6 +47,17 @@ public class PlanOfWorkingCreatorTest {
     }
 
     @Test
+    public void shouldReturnPlanOfIndexesForGivenAmountOfWorkers() throws Exception {
+        // given
+        final int amountOfWorkers = 3;
+        int[] expectedPlanOfIndexes = {0, 0, 0};
+        // when
+        int[] result = PlanOfWorkingCreator.initializePlanOfIndexes(amountOfWorkers);
+        // then
+        assertThat(result).isEqualTo(expectedPlanOfIndexes);
+    }
+
+    @Test
     public void shouldAssignSecondSetToLeastSignificantWorkerIfHeHasFirstSet() throws Exception {
         // given
         final boolean[][] everyPossibleCombinationOfWorkingAndNonWorkingDays = {
@@ -72,6 +83,19 @@ public class PlanOfWorkingCreatorTest {
         final boolean result = PlanOfWorkingCreator.increaseByOne(givenPlan, everyPossibleCombinationOfWorkingAndNonWorkingDays);
         // then
         assertThat(givenPlan).isEqualTo(expectedPlan);
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    public void shouldIncreaseLeastSignificantIndex() throws Exception {
+        // given
+        final int amountOfCombinations = 3;
+        int[] givenPlanOfIndexes =    {0, 0, 0};
+        int[] expectedPlanOfIndexes = {0, 0, 1};
+        // when
+        final boolean result = PlanOfWorkingCreator.increaseByOnePlanOfIndexes(givenPlanOfIndexes, amountOfCombinations);
+        // then
+        assertThat(givenPlanOfIndexes).isEqualTo(expectedPlanOfIndexes);
         assertThat(result).isTrue();
     }
 
@@ -134,6 +158,19 @@ public class PlanOfWorkingCreatorTest {
     }
 
     @Test
+    public void shouldResetLeastSignificantIndexAndIncreaseByOneNextIndexIfLeastSignificantIndexHasMax() throws Exception {
+        // given
+        final int amountOfCombinations = 3;
+        int[] givenPlanOfIndexes =    {0, 0, 2};
+        int[] expectedPlanOfIndexes = {0, 1, 0};
+        // when
+        final boolean result = PlanOfWorkingCreator.increaseByOnePlanOfIndexes(givenPlanOfIndexes, amountOfCombinations);
+        // then
+        assertThat(givenPlanOfIndexes).isEqualTo(expectedPlanOfIndexes);
+        assertThat(result).isTrue();
+    }
+
+    @Test
     public void shouldReturnFalseAndResetAllWorkersWhenEveryWorkerHasLastSet() throws Exception {
         // given
         final boolean[][] everyPossibleCombinationOfWorkingAndNonWorkingDays = {
@@ -159,6 +196,19 @@ public class PlanOfWorkingCreatorTest {
         final boolean result = PlanOfWorkingCreator.increaseByOne(givenPlan, everyPossibleCombinationOfWorkingAndNonWorkingDays);
         // then
         assertThat(givenPlan).isEqualTo(expectedPlan);
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    public void shouldReturnFalseAndResetAllIndexesWhenEveryIndexHasMax() throws Exception {
+        // given
+        final int amountOfCombinations = 3;
+        int[] givenPlanOfIndexes =    {2, 2, 2};
+        int[] expectedPlanOfIndexes = {0, 0, 0};
+        // when
+        final boolean result = PlanOfWorkingCreator.increaseByOnePlanOfIndexes(givenPlanOfIndexes, amountOfCombinations);
+        // then
+        assertThat(givenPlanOfIndexes).isEqualTo(expectedPlanOfIndexes);
         assertThat(result).isFalse();
     }
 

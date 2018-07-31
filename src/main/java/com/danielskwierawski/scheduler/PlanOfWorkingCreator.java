@@ -78,4 +78,25 @@ public class PlanOfWorkingCreator {
         return !overflow;
     }
 
+    public static int[] initializePlanOfIndexes(int amountOfWorkers) {
+        return new int[amountOfWorkers];
+    }
+
+    public static boolean increaseByOnePlanOfIndexes(int[] planOfIndexes, int amountOfCombinations) {
+        final int lenghtOfPlanOfIndexes = planOfIndexes.length;
+        boolean overflow = false;
+        for (int i = (lenghtOfPlanOfIndexes - 1); i >= 0; i--) {
+            overflow = false;
+            if (planOfIndexes[i] < (amountOfCombinations - 1)) {
+                planOfIndexes[i]++;
+            } else {
+                planOfIndexes[i] = 0;
+                overflow = true;
+            }
+            if (!overflow) {
+                break;
+            }
+        }
+        return !overflow;
+    }
 }
