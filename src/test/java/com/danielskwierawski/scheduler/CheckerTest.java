@@ -193,4 +193,50 @@ public class CheckerTest {
         // then
         assertThat(result).isFalse();
     }
+
+    @Test
+    public void shouldReturnTrueIfWorkerDoesNotExceedSpecifiedAmountOfWorkingDaysInARow() throws Exception {
+        // given
+        final boolean[] givenPlan = {
+                NON_WORKING_DAY,
+                WORKING_DAY,
+                WORKING_DAY,
+                WORKING_DAY,
+                WORKING_DAY,
+                WORKING_DAY,
+                WORKING_DAY,
+                WORKING_DAY,
+                WORKING_DAY,
+                WORKING_DAY,
+                WORKING_DAY,
+                NON_WORKING_DAY
+        };
+        // when
+        boolean result = Checker.checkAmountOfWorkingDaysInARow(givenPlan);
+        // then
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    public void shouldReturnFalseIfWorkerExceedSpecifiedAmountOfWorkingDaysInARow() throws Exception {
+        // given
+        final boolean[] givenPlan = {
+                WORKING_DAY,
+                WORKING_DAY,
+                WORKING_DAY,
+                WORKING_DAY,
+                WORKING_DAY,
+                WORKING_DAY,
+                WORKING_DAY,
+                WORKING_DAY,
+                WORKING_DAY,
+                WORKING_DAY,
+                WORKING_DAY
+        };
+        // when
+        boolean result = Checker.checkAmountOfWorkingDaysInARow(givenPlan);
+        // then
+        assertThat(result).isFalse();
+    }
+
 }

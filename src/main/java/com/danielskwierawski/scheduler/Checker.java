@@ -11,6 +11,7 @@ public class Checker {
     public static final int LATEST_HOUR_OF_START_WORKING = 14;
     public static final boolean WORKING_DAY = true;
     public static final boolean NON_WORKING_DAY = false;
+    public static final int AMOUNT_OF_ALLOWED_WORKING_DAYS_IN_A_ROW = 10;
 
     public static boolean checkStartHours(int[][] plan) {
         int amountOfWorkers = plan.length;
@@ -137,5 +138,21 @@ public class Checker {
 
     private static boolean dayIsNonWorkingDay(boolean day) {
         return day == NON_WORKING_DAY;
+    }
+
+    public static boolean checkAmountOfWorkingDaysInARow(boolean[] givenPlan) {
+        int amountOfDays = givenPlan.length;
+        for (int i = 0; i < (amountOfDays - AMOUNT_OF_ALLOWED_WORKING_DAYS_IN_A_ROW); i++) {
+            boolean foundNonWorkingDay = false;
+            for (int j = i; j < (i + AMOUNT_OF_ALLOWED_WORKING_DAYS_IN_A_ROW + 1); j++) {
+                if (givenPlan[j] == NON_WORKING_DAY) {
+                    foundNonWorkingDay = true;
+                }
+            }
+            if (!foundNonWorkingDay) {
+                return false;
+            }
+        }
+        return true;
     }
 }
