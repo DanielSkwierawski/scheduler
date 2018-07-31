@@ -1,25 +1,29 @@
 package com.danielskwierawski.scheduler;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class PlanOfWorkingCreator {
 
 
     public static boolean[][] createEveryPossibleCombinationsOfWorkingAndNonWorkingDays(int amountOfDays, int amountOfNonWorkingDays) {
-        int amountOfCombinations = getAmountOfCombinations(amountOfDays, amountOfNonWorkingDays);
-        boolean[][] result = new boolean[amountOfCombinations][];
-        fillWithAppropriatePlan(amountOfDays, amountOfNonWorkingDays, result);
+        List<boolean[]> listOfCombinations = new ArrayList<>();
+        fillWithAppropriatePlan(amountOfDays, amountOfNonWorkingDays, listOfCombinations);
+        int sizeOfListOfCombinations = listOfCombinations.size();
+        boolean[][] result = new boolean[sizeOfListOfCombinations][];
+        for (int i = 0; i < sizeOfListOfCombinations; i++) {
+            result[i] = listOfCombinations.get(i);
+        }
         return result;
     }
 
-    private static void fillWithAppropriatePlan(int amountOfDays, int amountOfNonWorkingDays, boolean[][] result) {
+    private static void fillWithAppropriatePlan(int amountOfDays, int amountOfNonWorkingDays, List<boolean[]> newResult) {
         boolean[] plan = Creator.initializePlanOfWorkingDays(amountOfDays);
-        int index = 0;
         do {
             if (Checker.checkAmountOfNonWorkingDays(plan, amountOfNonWorkingDays)) {
-                result[index] = plan.clone();
-                index++;
+                newResult.add(plan.clone());
             }
         } while (Creator.increaseByOnePlanOfWorkingDays(plan));
     }
