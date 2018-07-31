@@ -54,9 +54,9 @@ public class SimpleAppBasedOnWorkingDaysPlan {
         for (int i = 0; i < counter; i++) {
             timeStart = System.nanoTime();
             do {
-//                if (Checker.checkIfWorkingCoverageCouldBeFulfilled(plan, workersCoverage)) {
+                if (Checker.checkIfWorkingCoverageCouldBeFulfilled(plan, workersCoverage)) {
 //                    System.out.println(Arrays.deepToString(plan));
-//                }
+                }
 
             } while (PlanOfWorkingCreator.increaseByOne(plan, everyPossibleCombinationOfWorkingAndNonWorkingDays));
             timeStop = System.nanoTime();
