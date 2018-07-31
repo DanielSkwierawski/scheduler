@@ -5,245 +5,209 @@
 amountOfDays=28 amountOfNonWorkingDays=8 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=28
 
 
-82 possible combinations for one worker
-amountOfDays=14 amountOfNonWorkingDays=2 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=14
-551368 possible combinations for every workers
-67998 combinations passed requirements
-559903221
-420973576
-421864137
-309806783
-260413300
-345735834
-252647749
-254858045
-259115866
-254932186
-254289377
-256717560
-255500533
-264708014
-276103804
+amountOfDays=14 amountOfNonWorkingDays=2 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=14 amountOfCombinations=82
+478505541
+303241718
+402569458
+278829714
+191478120
+247671005
+194363026
+194553307
+182034341
+186814763
+192210757
+187186857
+189084455
+189121742
+213934988
 
-during browsing websites
-715 possible combinations for one worker
-amountOfDays=13 amountOfNonWorkingDays=4 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=13
-365525875 possible combinations for every workers
-4280850 combinations passed requirements
-443626625972
-443542063416
+amountOfDays=13 amountOfNonWorkingDays=4 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=13 amountOfCombinations=715
+89594503365
+90992349633
+89716550549
 
-286 possible combinations for one worker
-amountOfDays=13 amountOfNonWorkingDays=3 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=13
-23393656 possible combinations for every workers
-1284360 combinations passed requirements
-17292006298
-16352019410
-15855810853
-15862694994
-16313822248
-16309695274
-16144756361
-15860689164
-15872660205
-15885684701
-15860319738
-15903217262
-15883335490
-15852338273
-15938005887
+amountOfDays=13 amountOfNonWorkingDays=3 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=13 amountOfCombinations=286
+7306469345
+6615534163
+6701869530
+6651807975
+6712237936
+6627261080
+6600131813
+6605622019
+6611564239
+6607740168
+6778563478
+6690742138
+6677413341
+6662598917
+6637923024
 
 
-495 possible combinations for one worker
-amountOfDays=12 amountOfNonWorkingDays=4 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=12
-121287375 possible combinations for every workers
-4280850 combinations passed requirements
-108143651294
-105799884240
-106836299245
-106308862486
+amountOfDays=12 amountOfNonWorkingDays=4 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=12 amountOfCombinations=495
+29122425896
+28720856475
+28864540143
+29050516354
+28825614199
+28723396034
+28715387924
 
-220 possible combinations for one worker
-amountOfDays=12 amountOfNonWorkingDays=3 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=12
-10648000 possible combinations for every workers
-1284360 combinations passed requirements
-6918682329
-6136532874
-6124362036
-6065550474
-6068223748
-6029071222
-6042982514
-6038454825
-6031821751
-6042496315
-6020038672
-6048645258
-6040522175
-6071361297
-6024629698
+amountOfDays=12 amountOfNonWorkingDays=3 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=12 amountOfCombinations=220
+3597341039
+2814126005
+2832560291
+2829311967
+2815345611
+2954654612
+2865913729
+2817938593
+2837257394
+2816798055
+2822722828
+2817642475
+2817479998
+2820493043
+2844669041
 
 
-330 possible combinations for one worker
-amountOfDays=11 amountOfNonWorkingDays=4 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=11
-35937000 possible combinations for every workers
-735210 combinations passed requirements
-24757950495
-23897213695
-23886839395
-23811537113
-24100539735
-24058350693
-23809016191
-23854819361
-23851630071
-23817057735
-23832379830
-23989738963
-24315878843
-24290391932
-24174638772
+amountOfDays=11 amountOfNonWorkingDays=4 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=11 amountOfCombinations=330
+8833453509
+8219326709
+8195369002
+8405957082
+8598036221
+8202109338
+8221449342
+8214580676
+8275099672
+8293196835
+8297341132
+8234171982
+8207512147
+8396897240
+8459282551
 
-165 possible combinations for one worker
-amountOfDays=11 amountOfNonWorkingDays=3 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=11
-4492125 possible combinations for every workers
-407400 combinations passed requirements
-3045541236
-2293631270
-2286192384
-2289334876
-2299196509
-2318074646
-2317991209
-2324260122
-2326810369
-2308240200
-2313354231
-2322695751
-2310816098
-2332408003
-2310427649
+amountOfDays=11 amountOfNonWorkingDays=3 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=11 amountOfCombinations=165
+1962952739
+1262784963
+1189488295
+1206266350
+1182339579
+1173539658
+1166707850
+1169096152
+1170655296
+1174542800
+1165577374
+1169242121
+1185450286
+1181717735
+1182763091
 
 
-210 possible combinations for one worker
-amountOfDays=10 amountOfNonWorkingDays=4 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=10
-9261000 possible combinations for every workers
-87570 combinations passed requirements
-5590736794
-4786190321
-4839493529
-4823626980
-4823808271
-4855035428
-4823458980
-4830367894
-4835372639
-4832062265
-4833758586
-4827776134
-4821016168
-4877932170
-4841627409
+amountOfDays=10 amountOfNonWorkingDays=4 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=10 amountOfCombinations=210
+2928653292
+2003092256
+2021077568
+2032989827
+2014560766
+2017386324
+2018904322
+2020152319
+2027496393
+2028182498
+2035388821
+2015132803
+2018847658
+2018551119
+2016862541
 
-45 possible combinations for one worker
-amountOfDays=10 amountOfNonWorkingDays=2 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=10
-91125 possible combinations for every workers
-19236 combinations passed requirements
-235858816
-77593588
-53425513
-56564319
-62967683
-49109878
-46692317
-36695431
-34857108
-43358539
-66690358
-75764846
-51978260
-56291017
-51102674
+amountOfDays=10 amountOfNonWorkingDays=2 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=10 amountOfCombinations=45
+198148075
+71142815
+42507543
+38310462
+45525538
+27619792
+34658786
+33138843
+46205276
+65729192
+45693766
+27387818
+37368895
+44798452
+45128190
 
 
-126 possible combinations for one worker
-amountOfDays=9 amountOfNonWorkingDays=4 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=9
-2000376 possible combinations for every workers
-5670 combinations passed requirements
-1424742821
-826406080
-813577959
-733929671
-732196438
-734685167
-728832277
-730924931
-732817226
-729532450
-737704785
-729703282
-740218461
-734439110
-735055108
+amountOfDays=9 amountOfNonWorkingDays=4 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=9 amountOfCombinations=126
+1504421523
+519180625
+501142848
+413642853
+408825203
+415965553
+410046275
+411337479
+411056299
+411315684
+422729506
+411172823
+418551684
+413971375
+422700382
 
-36 possible combinations for one worker
-amountOfDays=9 amountOfNonWorkingDays=2 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=9
-46656 possible combinations for every workers
-7770 combinations passed requirements
-190829856
-28141537
-21192256
-20654676
-19100749
-26983490
-22371887
-14974903
-17853036
-18496001
-17038678
-27924762
-30820370
-22075338
-17476062
+amountOfDays=9 amountOfNonWorkingDays=2 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=9 amountOfCombinations=36
+174665809
+29366764
+25340621
+27041527
+14060943
+15910230
+17755883
+22845007
+25112541
+21748039
+13563917
+17134374
+20293176
+19109073
+14149078
 
 
-28 possible combinations for one worker
-amountOfDays=8 amountOfNonWorkingDays=2 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=8
-21952 possible combinations for every workers
-2640 combinations passed requirements
-259423598
-63134837
-16847491
-20042781
-19943364
-14230506
-14897875
-11115396
-16795451
-8267626
-7387473
-6791578
-7343181
-9412052
-12228041
+amountOfDays=8 amountOfNonWorkingDays=2 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=8 amountOfCombinations=28
+168664210
+16806765
+10647214
+11122586
+21226488
+9562382
+15141053
+11538373
+8433432
+5857416
+5757983
+5754402
+10674000
+8746621
+7360643
 
 
-21 possible combinations for one worker
-amountOfDays=7 amountOfNonWorkingDays=2 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=7
-9261 possible combinations for every workers
-690 combinations passed requirements
-146803000
-22139452
-16092419
-21009165
-5623852
-2906391
-4280416
-3083731
-3441390
-8774766
-3654791
-3984840
-4978917
-4062861
-2937532
+amountOfDays=7 amountOfNonWorkingDays=2 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=7 amountOfCombinations=21
+146670600
+17751240
+20318946
+8830463
+4259739
+4553030
+4159414
+3615273
+3835409
+14580297
+14380600
+3875822
+3489841
+2866278
+2974996

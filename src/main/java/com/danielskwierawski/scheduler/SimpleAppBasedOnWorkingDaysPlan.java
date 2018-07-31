@@ -48,17 +48,18 @@ public class SimpleAppBasedOnWorkingDaysPlan {
         final int amountOfDaysFromWorkersCoverage = workersCoverage.length;
 
         boolean[][] everyPossibleCombinationOfWorkingAndNonWorkingDays = PlanOfWorkingCreator.createEveryPossibleCombinationsOfWorkingAndNonWorkingDays(amountOfDays, amountOfNonWorkingDays);
-        boolean[][] plan = PlanOfWorkingCreator.initializePlanForWorkersFromGivenArray(amountOfWorkers, everyPossibleCombinationOfWorkingAndNonWorkingDays);
-
-        System.out.println("amountOfDays=" + amountOfDays + " amountOfNonWorkingDays=" + amountOfNonWorkingDays + " amountOfWorkers=" + amountOfWorkers + " amountOfDaysFromWorkersCoverage=" + amountOfDaysFromWorkersCoverage);
+        final int amountOfCombinations = everyPossibleCombinationOfWorkingAndNonWorkingDays.length;
+        int[] planOfIndexes = PlanOfWorkingCreator.initializePlanOfIndexes(amountOfWorkers);
+        System.out.println("amountOfDays=" + amountOfDays + " amountOfNonWorkingDays=" + amountOfNonWorkingDays + " amountOfWorkers=" + amountOfWorkers + " amountOfDaysFromWorkersCoverage=" + amountOfDaysFromWorkersCoverage + " amountOfCombinations=" + amountOfCombinations);
         for (int i = 0; i < counter; i++) {
             timeStart = System.nanoTime();
             do {
+                boolean[][] plan = PlanOfWorkingCreator.initializePlanForWorkersFromPlanOfIndexes(planOfIndexes, everyPossibleCombinationOfWorkingAndNonWorkingDays);
                 if (Checker.checkIfWorkingCoverageCouldBeFulfilled(plan, workersCoverage)) {
 //                    System.out.println(Arrays.deepToString(plan));
                 }
 
-            } while (PlanOfWorkingCreator.increaseByOne(plan, everyPossibleCombinationOfWorkingAndNonWorkingDays));
+            } while (PlanOfWorkingCreator.increaseByOnePlanOfIndexes(planOfIndexes, amountOfCombinations));
             timeStop = System.nanoTime();
             totals[i] = timeStop - timeStart;
             System.out.println(totals[i]);
