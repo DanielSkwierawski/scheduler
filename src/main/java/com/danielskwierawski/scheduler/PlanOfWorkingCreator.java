@@ -23,7 +23,9 @@ public class PlanOfWorkingCreator {
         boolean[] plan = Creator.initializePlanOfWorkingDays(amountOfDays);
         do {
             if (Checker.checkAmountOfNonWorkingDays(plan, amountOfNonWorkingDays)) {
-                newResult.add(plan.clone());
+                if (Checker.checkAmountOfWorkingDaysInARow(plan)) {
+                    newResult.add(plan.clone());
+                }
             }
         } while (Creator.increaseByOnePlanOfWorkingDays(plan));
     }
