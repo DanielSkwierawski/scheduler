@@ -99,4 +99,13 @@ public class PlanOfWorkingCreator {
         }
         return !overflow;
     }
+
+    public static boolean[][] initializePlanForWorkersFromPlanOfIndexes(int[] planOfIndexes, boolean[][] everyPossibleCombinationOfWorkingAndNonWorkingDays) {
+        final int amountOfWorkers = planOfIndexes.length;
+        boolean[][] result = new boolean[amountOfWorkers][];
+        for (int i = 0; i < amountOfWorkers; i++) {
+            result[i] = everyPossibleCombinationOfWorkingAndNonWorkingDays[planOfIndexes[i]].clone();
+        }
+        return result;
+    }
 }

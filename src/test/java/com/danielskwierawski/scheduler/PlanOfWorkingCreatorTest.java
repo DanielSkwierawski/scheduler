@@ -233,6 +233,66 @@ public class PlanOfWorkingCreatorTest {
         final BigInteger result1 = PlanOfWorkingCreator.factorial(factorialInput1);
         // then
         assertThat(result1).isEqualTo(expectedFactorialOutput1);
-
     }
+
+    @Test
+    public void shouldProducePlanWhereEveryRowContainsFirstCombinationWhenPlanOfIndexesContainsOnlyZeros() throws Exception {
+        // given
+        final boolean[][] everyPossibleCombinationOfWorkingAndNonWorkingDays = {
+                {true, true, false},
+                {true, false, true},
+                {false, true, true}
+        };
+        int[] planOfIndexes = {0, 0, 0};
+        final boolean[][] expectedPlan = {
+                {true, true, false},
+                {true, true, false},
+                {true, true, false}
+        };
+        // when
+        final boolean[][] plan = PlanOfWorkingCreator.initializePlanForWorkersFromPlanOfIndexes(planOfIndexes, everyPossibleCombinationOfWorkingAndNonWorkingDays);
+        // then
+        assertThat(plan).isEqualTo(expectedPlan);
+    }
+
+    @Test
+    public void shouldProducePlanWhereEveryRowContainsLastCombinationWhenPlanOfIndexesContainsOnlyMaxValues() throws Exception {
+        // given
+        final boolean[][] everyPossibleCombinationOfWorkingAndNonWorkingDays = {
+                {true, true, false},
+                {true, false, true},
+                {false, true, true}
+        };
+        int[] planOfIndexes = {2, 2, 2};
+        final boolean[][] expectedPlan = {
+                {false, true, true},
+                {false, true, true},
+                {false, true, true}
+        };
+        // when
+        final boolean[][] plan = PlanOfWorkingCreator.initializePlanForWorkersFromPlanOfIndexes(planOfIndexes, everyPossibleCombinationOfWorkingAndNonWorkingDays);
+        // then
+        assertThat(plan).isEqualTo(expectedPlan);
+    }
+
+    @Test
+    public void shouldProducePlanWithAppropriateRows() throws Exception {
+        // given
+        final boolean[][] everyPossibleCombinationOfWorkingAndNonWorkingDays = {
+                {true, true, false},
+                {true, false, true},
+                {false, true, true}
+        };
+        int[] planOfIndexes = {2, 1, 0};
+        final boolean[][] expectedPlan = {
+                {false, true, true},
+                {true, false, true},
+                {true, true, false}
+        };
+        // when
+        final boolean[][] plan = PlanOfWorkingCreator.initializePlanForWorkersFromPlanOfIndexes(planOfIndexes, everyPossibleCombinationOfWorkingAndNonWorkingDays);
+        // then
+        assertThat(plan).isEqualTo(expectedPlan);
+    }
+
 }
