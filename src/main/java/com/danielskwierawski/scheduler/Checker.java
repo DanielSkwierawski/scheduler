@@ -93,10 +93,9 @@ public class Checker {
         int amountOfDaysFromCoverage = workersCoverage.length;
         for (int day = 0; day < amountOfDaysFromCoverage; day++) {
             int maxAmountOfNeededWorkers = Arrays.stream(workersCoverage[day]).max().getAsInt();
-            int amountOfWorkersFromPlan = plan.length;
             int amountOfAvailableWorkers = 0;
-            for (int worker = 0; worker < amountOfWorkersFromPlan; worker++) {
-                if (plan[worker][day]==true) {
+            for (boolean[] worker : plan) {
+                if (worker[day]) {
                     amountOfAvailableWorkers++;
                 }
             }
