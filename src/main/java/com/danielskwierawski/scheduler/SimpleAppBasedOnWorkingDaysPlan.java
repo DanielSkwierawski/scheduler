@@ -45,7 +45,8 @@ public class SimpleAppBasedOnWorkingDaysPlan {
 //                {0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  1,  1,  3,  1,  1,  1,  1,  1,  1,  0,  0},//27
 //                {0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  1,  1,  3,  1,  1,  1,  1,  1,  1,  0,  0}//28
         };
-        final int amountOfDaysFromWorkersCoverage = workersCoverage.length;
+        final int[] workersCoverageFlat = Creator.getTheBiggestValueForEachDay(workersCoverage);
+        final int amountOfDaysFromWorkersCoverage = workersCoverageFlat.length;
 
         boolean[][] everyPossibleCombinationOfWorkingAndNonWorkingDays = PlanOfWorkingCreator.createEveryPossibleCombinationsOfWorkingAndNonWorkingDays(amountOfDays, amountOfNonWorkingDays);
         final int amountOfCombinations = everyPossibleCombinationOfWorkingAndNonWorkingDays.length;
@@ -55,7 +56,7 @@ public class SimpleAppBasedOnWorkingDaysPlan {
             timeStart = System.nanoTime();
             do {
                 boolean[][] plan = PlanOfWorkingCreator.initializePlanForWorkersFromPlanOfIndexes(planOfIndexes, everyPossibleCombinationOfWorkingAndNonWorkingDays);
-                if (Checker.checkIfWorkingCoverageCouldBeFulfilled(plan, workersCoverage)) {
+                if (Checker.checkIfWorkingCoverageCouldBeFulfilledFromFlatWorkersCoverage(plan, workersCoverageFlat)) {
 //                    System.out.println(Arrays.deepToString(plan));
                 }
 
