@@ -158,4 +158,21 @@ public class Checker {
         }
         return true;
     }
+
+    public static boolean checkIfWorkingCoverageCouldBeFulfilledFromFlatWorkersCoverage(boolean[][] plan, int[] workersCoverage) {
+        int amountOfDaysFromCoverage = workersCoverage.length;
+        for (int day = 0; day < amountOfDaysFromCoverage; day++) {
+            int maxAmountOfNeededWorkers = workersCoverage[day];
+            int amountOfAvailableWorkers = 0;
+            for (boolean[] worker : plan) {
+                if (worker[day]) {
+                    amountOfAvailableWorkers++;
+                }
+            }
+            if (maxAmountOfNeededWorkers > amountOfAvailableWorkers) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

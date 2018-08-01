@@ -145,6 +145,21 @@ public class CheckerTest {
     }
 
     @Test
+    public void shouldReturnTrueIfInGivenDayWorkAtLeastTheSameAmountOfWorkersThatInGivenDay() throws Exception {
+        // given
+        final int[] workersCoverage = {3, 2, 1};
+        final boolean[][] plan = {
+                {true, true, true},
+                {true, true, false},
+                {true, false, false}
+        };
+        // when
+        final boolean result = Checker.checkIfWorkingCoverageCouldBeFulfilledFromFlatWorkersCoverage(plan, workersCoverage);
+        // then
+        assertThat(result).isTrue();
+    }
+
+    @Test
     public void shouldReturnFalseIfInGivenDayWorkLessWorkersThanMaxFromCoverageInGivenDay() throws Exception {
         // given
         final int[][] workersCoverage = {
@@ -157,6 +172,21 @@ public class CheckerTest {
         };
         // when
         final boolean result = Checker.checkIfWorkingCoverageCouldBeFulfilled(plan, workersCoverage);
+        // then
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    public void shouldReturnFalseIfInGivenDayWorkLessWorkersThanInGivenDay() throws Exception {
+        // given
+        final int[] workersCoverage = {3};
+        boolean[][] plan = {
+                {true},
+                {true},
+                {false}
+        };
+        // when
+        final boolean result = Checker.checkIfWorkingCoverageCouldBeFulfilledFromFlatWorkersCoverage(plan, workersCoverage);
         // then
         assertThat(result).isFalse();
     }

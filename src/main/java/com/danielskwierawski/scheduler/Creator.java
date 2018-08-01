@@ -108,4 +108,20 @@ public class Creator {
     private static boolean isNotLatestHourOfStartWorking(int i) {
         return i != LATEST_HOUR_OF_START_WORKING;
     }
+
+    public static int[] getTheBiggestValueForEachDay(int[][] workersCoverage) {
+        int amountOfDaysFromCoverage = workersCoverage.length;
+        int[] result = new int[amountOfDaysFromCoverage];
+        for (int day = 0; day < amountOfDaysFromCoverage; day++) {
+            int maxAmountOfNeededWorkers = 0;
+            int amountOfHoursFromCoverage = workersCoverage[day].length;
+            for (int hour = 0; hour < amountOfHoursFromCoverage; hour++) {
+                if (workersCoverage[day][hour] > maxAmountOfNeededWorkers) {
+                    maxAmountOfNeededWorkers = workersCoverage[day][hour];
+                }
+            }
+            result[day] = maxAmountOfNeededWorkers;
+        }
+        return result;
+    }
 }
