@@ -1,37 +1,6 @@
 25985526743 -> 25s
 
 
-2889315 possible combinations for one worker
-amountOfDays=28 amountOfNonWorkingDays=8 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=28
-
-
-amountOfDays=14 amountOfNonWorkingDays=4 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=14 amountOfCombinations=1001
-252255512530
-257806718354
-
-amountOfDays=14 amountOfNonWorkingDays=3 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=14 amountOfCombinations=360
-14334594412
-13673082820
-13587599447
-13606078858
-13590491561
-13558383275
-13569354710
-13538033616
-13557286087
-13586316300
-13573659575
-13689954699
-13620277324
-13619449965
-13691600653
-
-
-amountOfDays=13 amountOfNonWorkingDays=4 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=13 amountOfCombinations=715
-89594503365
-90992349633
-89716550549
-
 amountOfDays=13 amountOfNonWorkingDays=3 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=13 amountOfCombinations=286
 7306469345
 6615534163
@@ -48,66 +17,3 @@ amountOfDays=13 amountOfNonWorkingDays=3 amountOfWorkers=3 amountOfDaysFromWorke
 6677413341
 6662598917
 6637923024
-
-
-amountOfDays=12 amountOfNonWorkingDays=4 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=12 amountOfCombinations=495
-29122425896
-28720856475
-28864540143
-29050516354
-28825614199
-28723396034
-28715387924
-
-amountOfDays=12 amountOfNonWorkingDays=3 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=12 amountOfCombinations=220
-3597341039
-2814126005
-2832560291
-2829311967
-2815345611
-2954654612
-2865913729
-2817938593
-2837257394
-2816798055
-2822722828
-2817642475
-2817479998
-2820493043
-2844669041
-
-
-amountOfDays=11 amountOfNonWorkingDays=4 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=11 amountOfCombinations=330
-8833453509
-8219326709
-8195369002
-8405957082
-8598036221
-8202109338
-8221449342
-8214580676
-8275099672
-8293196835
-8297341132
-8234171982
-8207512147
-8396897240
-8459282551
-
-
-amountOfDays=10 amountOfNonWorkingDays=4 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=10 amountOfCombinations=210
-2928653292
-2003092256
-2021077568
-2032989827
-2014560766
-2017386324
-2018904322
-2020152319
-2027496393
-2028182498
-2035388821
-2015132803
-2018847658
-2018551119
-2016862541
