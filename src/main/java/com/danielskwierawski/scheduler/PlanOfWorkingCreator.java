@@ -104,7 +104,7 @@ public class PlanOfWorkingCreator {
         final int amountOfWorkers = planOfIndexes.length;
         boolean[][] result = new boolean[amountOfWorkers][];
         for (int i = 0; i < amountOfWorkers; i++) {
-            result[i] = everyPossibleCombinationOfWorkingAndNonWorkingDays[planOfIndexes[i]].clone();
+            result[i] = everyPossibleCombinationOfWorkingAndNonWorkingDays[planOfIndexes[i]];
         }
         return result;
     }
