@@ -50,17 +50,10 @@ public class SimpleAppBasedOnWorkingDaysPlan {
 
         boolean[][] everyPossibleCombinationOfWorkingAndNonWorkingDays = PlanOfWorkingCreator.createEveryPossibleCombinationsOfWorkingAndNonWorkingDays(amountOfDays, amountOfNonWorkingDays);
         final int amountOfCombinations = everyPossibleCombinationOfWorkingAndNonWorkingDays.length;
-        int[] planOfIndexes = PlanOfWorkingCreator.initializePlanOfIndexes(amountOfWorkers);
         System.out.println("amountOfDays=" + amountOfDays + " amountOfNonWorkingDays=" + amountOfNonWorkingDays + " amountOfWorkers=" + amountOfWorkers + " amountOfDaysFromWorkersCoverage=" + amountOfDaysFromWorkersCoverage + " amountOfCombinations=" + amountOfCombinations);
         for (int i = 0; i < counter; i++) {
             timeStart = System.nanoTime();
-            do {
-                boolean[][] plan = PlanOfWorkingCreator.initializePlanForWorkersFromPlanOfIndexes(planOfIndexes, everyPossibleCombinationOfWorkingAndNonWorkingDays);
-                if (Checker.checkIfWorkingCoverageCouldBeFulfilledFromFlatWorkersCoverage(plan, workersCoverageFlat)) {
-//                    System.out.println(Arrays.deepToString(plan));
-                }
-
-            } while (PlanOfWorkingCreator.increaseByOnePlanOfIndexes(planOfIndexes, amountOfCombinations));
+            PlanOfWorkingCreator.createEveryPossiblePlansOfWorkingAndNonWorkingDays(amountOfDays, amountOfNonWorkingDays, amountOfWorkers, workersCoverage);
             timeStop = System.nanoTime();
             totals[i] = timeStop - timeStart;
             System.out.println(totals[i]);
