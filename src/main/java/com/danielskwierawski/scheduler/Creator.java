@@ -124,4 +124,20 @@ public class Creator {
         }
         return result;
     }
+
+    public static int[][] createStandardPlanFromPlanOfWorkingAndNonWorkingDays(boolean[][] planOfWorkingAndNonWorkingDays) {
+        int[][] result = new int[planOfWorkingAndNonWorkingDays.length][planOfWorkingAndNonWorkingDays[0].length];
+        int amountOfWorkers = planOfWorkingAndNonWorkingDays.length;
+        for (int worker = 0; worker < amountOfWorkers; worker++) {
+            int amountOfDays = planOfWorkingAndNonWorkingDays[worker].length;
+            for (int day = 0; day < amountOfDays; day++) {
+                if (planOfWorkingAndNonWorkingDays[worker][day]) {
+                    result[worker][day] = EARLIEST_HOUR_OF_START_WORKING;
+                } else {
+                    result[worker][day] = DAY_OFF;
+                }
+            }
+        }
+        return result;
+    }
 }

@@ -227,4 +227,24 @@ public class CreatorTest {
         // then
         assertThat(result).isEqualTo(expectedResult);
     }
+
+    @Test
+    public void shouldTransformPlanOfWorkingAndNonWorkingDaysToPlanWithHours() throws Exception {
+        // given
+        final int initValue = EARLIEST_HOUR_OF_START_WORKING;
+        boolean[][] planOfWorkingAndNonWorkingDays = {
+                {true, true, false},
+                {true, false, true},
+                {false, true, true}
+        };
+        int[][] expectedPlan = {
+                {initValue,initValue,DAY_OFF},
+                {initValue,DAY_OFF,initValue},
+                {DAY_OFF,initValue,initValue}
+        };
+        // when
+        int[][] result = Creator.createStandardPlanFromPlanOfWorkingAndNonWorkingDays(planOfWorkingAndNonWorkingDays);
+        // then
+        assertThat(result).isEqualTo(expectedPlan);
+    }
 }
