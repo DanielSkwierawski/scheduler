@@ -11,12 +11,7 @@ public class PlanOfWorkingCreator {
     public static boolean[][] createEveryPossibleCombinationsOfWorkingAndNonWorkingDays(int amountOfDays, int amountOfNonWorkingDays) {
         List<boolean[]> listOfCombinations = new ArrayList<>();
         fillWithAppropriatePlan(amountOfDays, amountOfNonWorkingDays, listOfCombinations);
-        int sizeOfListOfCombinations = listOfCombinations.size();
-        boolean[][] result = new boolean[sizeOfListOfCombinations][];
-        for (int i = 0; i < sizeOfListOfCombinations; i++) {
-            result[i] = listOfCombinations.get(i);
-        }
-        return result;
+        return listOfCombinations.toArray(new boolean[0][]);
     }
 
     private static void fillWithAppropriatePlan(int amountOfDays, int amountOfNonWorkingDays, List<boolean[]> newResult) {
