@@ -103,4 +103,19 @@ public class PlanOfWorkingCreator {
         }
         return result;
     }
+
+    public static boolean[][][] createEveryPossiblePlansOfWorkingAndNonWorkingDays(int amountOfDays, int amountOfNonWorkingDays, int amountOfWorkers, int[][] workersCoverage) {
+        List<boolean[][]> listOfPlans = new ArrayList<>();
+        int[] workersCoverageFlat = Creator.getTheBiggestValueForEachDay(workersCoverage);
+        boolean[][] everyPossibleCombinationOfWorkingAndNonWorkingDays = PlanOfWorkingCreator.createEveryPossibleCombinationsOfWorkingAndNonWorkingDays(amountOfDays, amountOfNonWorkingDays);
+        final int amountOfCombinations = everyPossibleCombinationOfWorkingAndNonWorkingDays.length;
+        int[] planOfIndexes = PlanOfWorkingCreator.initializePlanOfIndexes(amountOfWorkers);
+        do {
+            boolean[][] plan = PlanOfWorkingCreator.initializePlanForWorkersFromPlanOfIndexes(planOfIndexes, everyPossibleCombinationOfWorkingAndNonWorkingDays);
+            if (Checker.checkIfWorkingCoverageCouldBeFulfilledFromFlatWorkersCoverage(plan, workersCoverageFlat)) {
+                listOfPlans.add(plan);
+            }
+        } while (PlanOfWorkingCreator.increaseByOnePlanOfIndexes(planOfIndexes, amountOfCombinations));
+        return listOfPlans.toArray(new boolean[0][][]);
+    }
 }
