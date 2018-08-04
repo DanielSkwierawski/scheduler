@@ -45,32 +45,25 @@ public class SimpleAppBasedOnWorkingDaysPlan {
 //                {0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  1,  1,  3,  1,  1,  1,  1,  1,  1,  0,  0},//27
 //                {0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  1,  1,  3,  1,  1,  1,  1,  1,  1,  0,  0}//28
         };
-        final int[] workersCoverageFlat = Creator.getTheBiggestValueForEachDay(workersCoverage);
-        final int amountOfDaysFromWorkersCoverage = workersCoverageFlat.length;
-
-        boolean[][] everyPossibleCombinationOfWorkingAndNonWorkingDays = PlanOfWorkingCreator.createEveryPossibleCombinationsOfWorkingAndNonWorkingDays(amountOfDays, amountOfNonWorkingDays);
-        final int amountOfCombinations = everyPossibleCombinationOfWorkingAndNonWorkingDays.length;
-        boolean[][][] everyPossiblePlansOfWorkingAndNonWorkingDays = PlanOfWorkingCreator.createEveryPossiblePlansOfWorkingAndNonWorkingDays(amountOfDays, amountOfNonWorkingDays, amountOfWorkers, workersCoverage);
-        int amountOfPlans = everyPossiblePlansOfWorkingAndNonWorkingDays.length;
-        System.out.println("amountOfDays=" + amountOfDays + " amountOfNonWorkingDays=" + amountOfNonWorkingDays + " amountOfWorkers=" + amountOfWorkers + " amountOfDaysFromWorkersCoverage=" + amountOfDaysFromWorkersCoverage + " amountOfCombinations=" + amountOfCombinations + " amountOfPlans=" + amountOfPlans);
+        System.out.println("amountOfDays=" + amountOfDays + " amountOfNonWorkingDays=" + amountOfNonWorkingDays + " amountOfWorkers=" + amountOfWorkers);
         for (int i = 0; i < counter; i++) {
             timeStart = System.nanoTime();
 
-            for (int plan = 0; plan < amountOfPlans; plan++) {
-                System.out.println(Arrays.deepToString(everyPossiblePlansOfWorkingAndNonWorkingDays[plan]));
-                int[][] currentPlan = Creator.createStandardPlanFromPlanOfWorkingAndNonWorkingDays(everyPossiblePlansOfWorkingAndNonWorkingDays[plan]);
-                do {
-                    if (Checker.checkStartHours(currentPlan)) {
-                        if (Checker.checkIfWorkingCoverageIsFulfilled(currentPlan, workersCoverage)) {
-                            System.out.println(Arrays.deepToString(currentPlan));
-                        }
-                    }
-                } while (Creator.increaseOnlyWorkingDays(currentPlan));
-            }
+            int[][][] everyPossiblePlans = PlanOfWorkingCreator.createEveryPossiblePlans(amountOfDays, amountOfNonWorkingDays, amountOfWorkers, workersCoverage);
 
             timeStop = System.nanoTime();
+
+            deepPrint(everyPossiblePlans);
+
             totals[i] = timeStop - timeStart;
             System.out.println(totals[i]);
         }
+    }
+
+    private static void deepPrint(int[][][] everyPossiblePlans) {
+        for (int plan = 0; plan < everyPossiblePlans.length; plan++) {
+            System.out.println(Arrays.deepToString(everyPossiblePlans[plan]));
+        }
+
     }
 }

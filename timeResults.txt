@@ -1,36 +1,65 @@
 25985526743 -> 25s
 
 
-amountOfDays=13 amountOfNonWorkingDays=3 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=13 amountOfCombinations=286
-1958564231
-1607330164
-1570772378
-1415791095
-1424441144
-1594592297
-1387666110
-1416694254
-1389749716
-1412627109
-1386482974
-1378801080
-1412477995
-1390671415
-1372663034
+final int amountOfDays = 5;
+        final int amountOfNonWorkingDays = 1;
+        final int amountOfWorkers = 3;
+        final int[][] workersCoverage = {
+//              {0,  1,  2,  3,  4,  5,  6,  7,  8,  9,  10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23},
+                {0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  0,  0},//1
+                {0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  0,  0},//2
+                {0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  0,  0},//3
+                {0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  0,  0},//4
+                {0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  0,  0},//5
+amountOfDays=5 amountOfNonWorkingDays=1 amountOfWorkers=3
+161934491187
 
-amountOfDays=12 amountOfNonWorkingDays=4 amountOfWorkers=3 amountOfDaysFromWorkersCoverage=12 amountOfCombinations=495
-7738159321
-6004386159
-7600346257
-6125694880
-6679225008
-6177844177
-6227155377
-6032546405
-5980372548
-5946500046
-6539541566
-5959818872
-6100720573
-5855631384
-5867125115
+final int amountOfDays = 5;
+        final int amountOfNonWorkingDays = 1;
+        final int amountOfWorkers = 3;
+        final int[][] workersCoverage = {
+//              {0,  1,  2,  3,  4,  5,  6,  7,  8,  9,  10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23},
+                {0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  0,  0},//1
+                {0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  0,  0},//2
+                {0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  0,  0},//3
+                {0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  0,  0},//4
+                {0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  1,  1,  2,  2,  2,  2,  2,  1,  1,  0,  0},//5
+amountOfDays=5 amountOfNonWorkingDays=1 amountOfWorkers=3
+71016851656
+
+final int amountOfDays = 5;
+        final int amountOfNonWorkingDays = 1;
+        final int amountOfWorkers = 3;
+        final int[][] workersCoverage = {
+//              {0,  1,  2,  3,  4,  5,  6,  7,  8,  9,  10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23},
+                {0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  0,  0},//1
+                {0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  0,  0},//2
+                {0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  0,  0},//3
+                {0,  0,  0,  0,  0,  0,  1,  1,  2,  2,  2,  2,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  0,  0},//4
+                {0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  1,  1,  2,  2,  2,  2,  2,  1,  1,  0,  0},//5
+amountOfDays=5 amountOfNonWorkingDays=1 amountOfWorkers=3
+18059973714
+
+final int amountOfDays = 4;
+        final int amountOfNonWorkingDays = 1;
+        final int amountOfWorkers = 3;
+        final int[][] workersCoverage = {
+//              {0,  1,  2,  3,  4,  5,  6,  7,  8,  9,  10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23},
+                {0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  0,  0},//1
+                {0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  0,  0},//2
+                {0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  0,  0},//3
+                {0,  0,  0,  0,  0,  0,  2,  2,  2,  2,  2,  2,  2,  2,  1,  1,  1,  1,  1,  1,  1,  1,  0,  0},//4
+amountOfDays=4 amountOfNonWorkingDays=1 amountOfWorkers=3
+402688436
+
+final int amountOfDays = 4;
+        final int amountOfNonWorkingDays = 1;
+        final int amountOfWorkers = 3;
+        final int[][] workersCoverage = {
+//              {0,  1,  2,  3,  4,  5,  6,  7,  8,  9,  10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23},
+                {0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  0,  0},//1
+                {0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  0,  0},//2
+                {0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  0,  0},//3
+                {0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  2,  2,  2,  2,  1,  1,  1,  1,  1,  1,  1,  1,  0,  0},//4
+amountOfDays=4 amountOfNonWorkingDays=1 amountOfWorkers=3
+345421168
