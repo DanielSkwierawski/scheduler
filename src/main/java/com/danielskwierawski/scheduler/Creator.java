@@ -140,4 +140,30 @@ public class Creator {
         }
         return result;
     }
+
+    public static boolean increaseOnlyWorkingDays(int[][] givenPlan) {
+        boolean overflow = false;
+        int amountOfWorkers = givenPlan.length;
+        for (int worker = (amountOfWorkers - 1); worker >= 0; worker--) {
+            int amountOfDays = givenPlan[worker].length;
+            for (int day = (amountOfDays - 1); day >= 0; day--) {
+                if (dayIsNotDayOff(givenPlan[worker][day])) {
+                    if (isNotLatestHourOfStartWorking(givenPlan[worker][day])) {
+                        givenPlan[worker][day]+=STEP;
+                        overflow = false;
+                    } else {
+                        givenPlan[worker][day] = EARLIEST_HOUR_OF_START_WORKING;
+                        overflow = true;
+                    }
+                    if (!overflow) {
+                        break;
+                    }
+                }
+            }
+            if (!overflow) {
+                break;
+            }
+        }
+        return !overflow;
+    }
 }

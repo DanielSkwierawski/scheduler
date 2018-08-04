@@ -247,4 +247,57 @@ public class CreatorTest {
         // then
         assertThat(result).isEqualTo(expectedPlan);
     }
+
+    @Test
+    public void shouldIncreaseLeastSignificantWorkingDay() throws Exception {
+        // given
+        final int initValue = EARLIEST_HOUR_OF_START_WORKING;
+        int[][] givenPlan = {
+                {initValue, initValue,          DAY_OFF}
+        };
+        int[][] expectedPlan = {
+                {initValue, (initValue + STEP), DAY_OFF}
+        };
+        // when
+        final boolean result = Creator.increaseOnlyWorkingDays(givenPlan);
+        // then
+        assertThat(givenPlan).isEqualTo(expectedPlan);
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    public void shouldSetEarliestHourToLeastSignificantWorkingDayAndIncreaseByOneNextWorkingDayWhenLastSignificantWorkingDayIsLatestHour() throws Exception {
+        // given
+        final int initValue = EARLIEST_HOUR_OF_START_WORKING;
+        final int latestHour = LATEST_HOUR_OF_START_WORKING;
+        int[][] givenPlan = {
+                {initValue,          latestHour, DAY_OFF}
+        };
+        int[][] expectedPlan = {
+                {(initValue + STEP), initValue,  DAY_OFF}
+        };
+        // when
+        final boolean result = Creator.increaseOnlyWorkingDays(givenPlan);
+        // then
+        assertThat(givenPlan).isEqualTo(expectedPlan);
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    public void shouldReturnFalseAndSetEarliestHourToEveryWorkingDayWhenEveryWorkingDayIsLatestHour() throws Exception {
+        // given
+        final int initValue = EARLIEST_HOUR_OF_START_WORKING;
+        final int latestHour = LATEST_HOUR_OF_START_WORKING;
+        int[][] givenPlan = {
+                {latestHour,    latestHour, DAY_OFF}
+        };
+        int[][] expectedPlan = {
+                {initValue,     initValue,  DAY_OFF}
+        };
+        // when
+        final boolean result = Creator.increaseOnlyWorkingDays(givenPlan);
+        // then
+        assertThat(givenPlan).isEqualTo(expectedPlan);
+        assertThat(result).isFalse();
+    }
 }
