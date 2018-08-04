@@ -118,4 +118,31 @@ public class PlanOfWorkingCreator {
         } while (PlanOfWorkingCreator.increaseByOnePlanOfIndexes(planOfIndexes, amountOfCombinations));
         return listOfPlans.toArray(new boolean[0][][]);
     }
+
+    public static int[][][] createEveryPossiblePlans(int amountOfDays, int amountOfNonWorkingDays, int amountOfWorkers, int[][] workersCoverage) {
+        List<int[][]> listOfPlans = new ArrayList<>();
+        boolean[][][] everyPossiblePlansOfWorkingAndNonWorkingDays = PlanOfWorkingCreator.createEveryPossiblePlansOfWorkingAndNonWorkingDays(amountOfDays, amountOfNonWorkingDays, amountOfWorkers, workersCoverage);
+        int amountOfPlans = everyPossiblePlansOfWorkingAndNonWorkingDays.length;
+
+        for (int plan = 0; plan < amountOfPlans; plan++) {
+            int[][] currentPlan = Creator.createStandardPlanFromPlanOfWorkingAndNonWorkingDays(everyPossiblePlansOfWorkingAndNonWorkingDays[plan]);
+            do {
+                if (Checker.checkStartHours(currentPlan)) {
+                    if (Checker.checkIfWorkingCoverageIsFulfilled(currentPlan, workersCoverage)) {
+                        listOfPlans.add(deepCopy(currentPlan));
+                    }
+                }
+            } while (Creator.increaseOnlyWorkingDays(currentPlan));
+        }
+        return listOfPlans.toArray(new int[0][][]);
+    }
+
+    private static int[][] deepCopy(int[][] currentPlan) {
+        int[][] result = new int[currentPlan.length][currentPlan[0].length];
+        final int amountOfWorkers = currentPlan.length;
+        for (int worker = 0; worker < amountOfWorkers; worker++) {
+            result[worker] = currentPlan[worker].clone();
+            }
+        return result;
+    }
 }
