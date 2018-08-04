@@ -125,6 +125,40 @@ public class Creator {
         return result;
     }
 
+    public static int[] getTheBiggestValueForEachDayByCalculatingManHours(int[][] workersCoverage) {
+        int amountOfDaysFromCoverage = workersCoverage.length;
+        int[] result = new int[amountOfDaysFromCoverage];
+        for (int day = 0; day < amountOfDaysFromCoverage; day++) {
+            int sumOfManHours = 0;
+            int amountOfHoursFromCoverage = workersCoverage[day].length;
+            for (int hour = 0; hour < amountOfHoursFromCoverage; hour++) {
+                sumOfManHours += workersCoverage[day][hour];
+            }
+            result[day] = (sumOfManHours + AMOUNT_OF_WORKING_HOURS_PER_DAY - 1) / AMOUNT_OF_WORKING_HOURS_PER_DAY;
+        }
+        return result;
+    }
+
+    public static int[] getTheBiggestValueForEachDayByCalculatingManHoursAndByTakingTheMaxValueFromEachRow(int[][] workersCoverage) {
+        int amountOfDaysFromCoverage = workersCoverage.length;
+        int[] result = new int[amountOfDaysFromCoverage];
+        for (int day = 0; day < amountOfDaysFromCoverage; day++) {
+            int maxAmountOfNeededWorkers = 0;
+            int sumOfManHours = 0;
+            int sumOfMans = 0;
+            int amountOfHoursFromCoverage = workersCoverage[day].length;
+            for (int hour = 0; hour < amountOfHoursFromCoverage; hour++) {
+                sumOfManHours += workersCoverage[day][hour];
+                if (workersCoverage[day][hour] > maxAmountOfNeededWorkers) {
+                    maxAmountOfNeededWorkers = workersCoverage[day][hour];
+                }
+            }
+            sumOfMans = (sumOfManHours + AMOUNT_OF_WORKING_HOURS_PER_DAY - 1) / AMOUNT_OF_WORKING_HOURS_PER_DAY;
+            result[day] = (maxAmountOfNeededWorkers > sumOfMans) ? maxAmountOfNeededWorkers : sumOfMans;
+        }
+        return result;
+    }
+
     public static int[][] createStandardPlanFromPlanOfWorkingAndNonWorkingDays(boolean[][] planOfWorkingAndNonWorkingDays) {
         int[][] result = new int[planOfWorkingAndNonWorkingDays.length][planOfWorkingAndNonWorkingDays[0].length];
         int amountOfWorkers = planOfWorkingAndNonWorkingDays.length;

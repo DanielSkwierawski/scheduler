@@ -106,7 +106,7 @@ public class PlanOfWorkingCreator {
 
     public static boolean[][][] createEveryPossiblePlansOfWorkingAndNonWorkingDays(int amountOfDays, int amountOfNonWorkingDays, int amountOfWorkers, int[][] workersCoverage) {
         List<boolean[][]> listOfPlans = new ArrayList<>();
-        int[] workersCoverageFlat = Creator.getTheBiggestValueForEachDay(workersCoverage);
+        int[] workersCoverageFlat = Creator.getTheBiggestValueForEachDayByCalculatingManHoursAndByTakingTheMaxValueFromEachRow(workersCoverage);
         boolean[][] everyPossibleCombinationOfWorkingAndNonWorkingDays = PlanOfWorkingCreator.createEveryPossibleCombinationsOfWorkingAndNonWorkingDays(amountOfDays, amountOfNonWorkingDays);
         final int amountOfCombinations = everyPossibleCombinationOfWorkingAndNonWorkingDays.length;
         int[] planOfIndexes = PlanOfWorkingCreator.initializePlanOfIndexes(amountOfWorkers);
