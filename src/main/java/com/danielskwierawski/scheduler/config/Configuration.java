@@ -2,10 +2,13 @@ package com.danielskwierawski.scheduler.config;
 
 public class Configuration {
 
-    private final int amountOfDays;
-    private final int amountOfNonWorkingDays;
-    private final int amountOfWorkers;
-    private final int[][] workersCoverage;
+    private int amountOfDays;
+    private int amountOfNonWorkingDays;
+    private int amountOfWorkers;
+    private int[][] workersCoverage;
+
+    public Configuration() {
+    }
 
     public Configuration(int amountOfDays, int amountOfNonWorkingDays, int amountOfWorkers, int[][] workersCoverage) {
         this.amountOfDays = amountOfDays;
