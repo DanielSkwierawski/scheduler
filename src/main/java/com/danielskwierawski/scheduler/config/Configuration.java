@@ -1,5 +1,7 @@
 package com.danielskwierawski.scheduler.config;
 
+import java.util.Arrays;
+
 public class Configuration {
 
     private int amountOfDays;
@@ -31,5 +33,27 @@ public class Configuration {
 
     public int[][] getWorkersCoverage() {
         return workersCoverage;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Configuration that = (Configuration) o;
+
+        if (amountOfDays != that.amountOfDays) return false;
+        if (amountOfNonWorkingDays != that.amountOfNonWorkingDays) return false;
+        if (amountOfWorkers != that.amountOfWorkers) return false;
+        return Arrays.deepEquals(workersCoverage, that.workersCoverage);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = amountOfDays;
+        result = 31 * result + amountOfNonWorkingDays;
+        result = 31 * result + amountOfWorkers;
+        result = 31 * result + Arrays.deepHashCode(workersCoverage);
+        return result;
     }
 }
